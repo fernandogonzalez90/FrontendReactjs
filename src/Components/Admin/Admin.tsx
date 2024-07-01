@@ -10,13 +10,9 @@ import {
     rem,
     Button
 } from '@mantine/core';
-import { GiSkills } from "react-icons/gi";
-import { PiCertificateBold } from "react-icons/pi";
-import { IoHome } from "react-icons/io5";
-import { GrContact } from "react-icons/gr";
-import { FaFolderTree, FaRegLightbulb, FaRegEnvelope } from "react-icons/fa6";
+import { FaRegEnvelope } from "react-icons/fa6";
 import { MdOutlineTaskAlt } from "react-icons/md";
-import { FaUser, FaSearchengin } from "react-icons/fa";
+import { FaSearchengin } from "react-icons/fa";
 import { CiCirclePlus } from "react-icons/ci";
 import { BiStats } from "react-icons/bi";
 

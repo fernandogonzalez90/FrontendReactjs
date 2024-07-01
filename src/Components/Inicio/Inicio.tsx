@@ -6,7 +6,7 @@ import { GeneralType } from '../../Types/apiTypes';
 import { FaGithub, FaLinkedin } from "react-icons/fa";
 
 export function Inicio() {
-  const { data } = useFetch('general/')
+  const { data } = useFetch<GeneralType[]>('general/')
 
 
   const items = data?.map((item: GeneralType) => (

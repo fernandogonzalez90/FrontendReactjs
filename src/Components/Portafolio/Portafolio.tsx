@@ -5,7 +5,7 @@ import { CardType } from '../../Types/apiTypes';
 
 
 export function Portafolio() {
-    const { data } = useFetch('proyectos/')
+    const { data } = useFetch<CardType[]>('proyectos/')
     return (
         <Container size="lg" id='portafolio'>
             <Divider my="md" color="cyan.3" />

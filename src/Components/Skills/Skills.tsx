@@ -7,7 +7,6 @@ import {
     Loader,
     Flex,
     ActionIcon,
-    Center,
 } from '@mantine/core';
 import { useFetch } from '../useFetch';
 import classes from './Skills.module.css';
@@ -16,8 +15,8 @@ import iconMap from '../IconMap';
 import BadgeComponent from '../BadgeComponent/BadgeComponent';
 
 export function Skills() {
-    const { data: skillsData } = useFetch('skills/');
-    const { data: badgeData } = useFetch('softskills/');
+    const { data: skillsData } = useFetch<SkillsType[]>('skills/');
+    const { data: badgeData } = useFetch<SoftSkillsType[]>('softskills/');
 
     if (!skillsData || !badgeData) {
         return <Loader size={30} />;
