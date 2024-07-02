@@ -1,37 +1,23 @@
-import React, { useState, FormEvent } from 'react';
-import authService from '../AuthServices';
+import React from 'react';
+import { Button, TextInput } from '@mantine/core';
+import { useNavigate } from 'react-router-dom';
 
-const Login: React.FC = () => {
-  const [username, setUsername] = useState<string>('');
-  const [password, setPassword] = useState<string>('');
+const Login: React.FC<{ onLogin: () => void }> = ({ onLogin }) => {
+  const navigate = useNavigate();
 
-  const handleLogin = async (e: FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    try {
-      const user = await authService.login(username, password);
-      console.log('Login exitoso', user);
-      // Aquí puedes redirigir al usuario o actualizar el estado de la aplicación
-    } catch (error) {
-      console.error('Error de login', error);
-    }
+  const handleLogin = () => {
+    // Aquí iría tu lógica de autenticación
+    onLogin();
+    navigate('/admin');
   };
 
   return (
-    <form onSubmit={handleLogin}>
-      <input
-        type="text"
-        value={username}
-        onChange={(e) => setUsername(e.target.value)}
-        placeholder="Username"
-      />
-      <input
-        type="password"
-        value={password}
-        onChange={(e) => setPassword(e.target.value)}
-        placeholder="Password"
-      />
-      <button type="submit">Login</button>
-    </form>
+    <div>
+      <h1>Login</h1>
+      <TextInput placeholder="Username" />
+      <TextInput placeholder="Password" type="password" />
+      <Button onClick={handleLogin}>Login</Button>
+    </div>
   );
 };
 
