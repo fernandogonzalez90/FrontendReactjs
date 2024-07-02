@@ -4,7 +4,6 @@ import PublicComponent from './Components/PublicComponent/PublicComponent';
 const App: React.FC = () => {
   return (
     <PublicComponent></PublicComponent>
-
   );
 };
 
