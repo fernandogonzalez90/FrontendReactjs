@@ -6,7 +6,7 @@ export function useFetch<T>(point: string) {
   const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
-    fetch(`http://18.231.219.84:8000/api/${point}`)
+    fetch(`https://backendjango.ddns.net/api/${point}`)
       .then((response) => response.json())
       .then((data) => {
         setData(data);

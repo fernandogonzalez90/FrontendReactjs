@@ -1,7 +1,7 @@
 import axios, { AxiosResponse } from 'axios';
 import { jwtDecode } from 'jwt-decode';
 
-const API_URL = 'http://18.231.219.84:8000/api/';
+const API_URL = 'https://backendjango.ddns.net/api/';
 
 interface User {
   access: string;

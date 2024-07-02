@@ -9,7 +9,7 @@ export function usePost() {
     setLoading(true);
     try {
       console.log("usepost!");
-      const response = await fetch(`http://18.231.219.84:8000/api/${url}`, {
+      const response = await fetch(`https://backendjango.ddns.net/api/${url}`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
