@@ -16,4 +16,23 @@ axiosInstance.interceptors.request.use(
   }
 );
 
+axiosInstance.interceptors.response.use(
+  (response) => response,
+  async (error) => {
+    if (error.response && error.response.status === 401) {
+      try {
+        const newToken = await authService.refreshToken();
+        if (newToken) {
+          error.config.headers['Authorization'] = 'Bearer ' + newToken;
+          return axiosInstance(error.config);
+        }
+      } catch (refreshError) {
+        authService.logout();
+        // Redirigir al login
+      }
+    }
+    return Promise.reject(error);
+  }
+);
+
 export default axiosInstance;
