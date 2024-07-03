@@ -13,10 +13,12 @@ import {
 } from '@mantine/core';
 import { useDisclosure } from '@mantine/hooks';
 import classes from './HeaderMegaMenu.module.css';
+import { useNavigate } from 'react-router-dom';
 
 
 export function HeaderMegaMenu() {
   const [drawerOpened, { toggle: toggleDrawer, close: closeDrawer }] = useDisclosure(false);
+  const navigate = useNavigate();
 
   return (
     <Box pb={120}>
@@ -52,7 +54,7 @@ export function HeaderMegaMenu() {
           </Group>
 
           <Group visibleFrom="sm">
-            <Button variant="subtle" color="cyan">Log in</Button>
+            <Button variant="subtle" color="cyan" onClick={() => navigate('/login')}>Login</Button>
           </Group>
           <Burger opened={drawerOpened} onClick={toggleDrawer} hiddenFrom="sm" />
         </Group>
