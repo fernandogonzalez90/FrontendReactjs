@@ -38,6 +38,5 @@
     "postcss-simple-vars": "^7.0.1",
     "typescript": "^5.4.2",
     "vite": "^5.1.6"
-  },
-  "packageManager": "yarn@4.2.2"
+  }
 }
