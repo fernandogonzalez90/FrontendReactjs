@@ -36,7 +36,7 @@ const collections = [
     { emoji: '💁‍♀️', label: 'Customers' },
 ];
 
-export function NavbarSearch() {
+export function Admin() {
     const mainLinks = links.map((link) => (
         <UnstyledButton key={link.label} className={classes.mainLink}>
             <div className={classes.mainLinkInner}>
