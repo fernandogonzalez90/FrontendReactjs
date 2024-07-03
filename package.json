@@ -13,6 +13,7 @@
     "@mantine/core": "7.10.0",
     "@mantine/form": "^7.10.1",
     "@mantine/hooks": "7.10.0",
+    "@tabler/icons-react": "^3.8.0",
     "@types/axios": "^0.14.0",
     "@types/node": "^20.14.9",
     "@types/react-router-dom": "^5.3.3",
