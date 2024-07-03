@@ -1,101 +1,167 @@
 import {
-    TextInput,
-    Code,
-    UnstyledButton,
-    Badge,
-    Text,
+    HoverCard,
     Group,
-    ActionIcon,
-    Tooltip,
+    Button,
+    UnstyledButton,
+    Text,
+    SimpleGrid,
+    ThemeIcon,
+    Anchor,
+    Divider,
+    Center,
+    Box,
+    Burger,
+    Drawer,
+    Collapse,
+    ScrollArea,
     rem,
-    Button
+    useMantineTheme,
 } from '@mantine/core';
-import { FaRegEnvelope } from "react-icons/fa6";
-import { MdOutlineTaskAlt } from "react-icons/md";
-import { FaSearchengin } from "react-icons/fa";
-import { CiCirclePlus } from "react-icons/ci";
-import { BiStats } from "react-icons/bi";
-
+import { useDisclosure } from '@mantine/hooks';
+import {
+    IconNotification,
+    IconCode,
+    IconBook,
+    IconChartPie3,
+    IconFingerprint,
+    IconCoin,
+    IconChevronDown,
+} from '@tabler/icons-react';
 import classes from './Admin.module.css';
+import { AdminGeneral } from './AdminGeneral/AdminGeneral';
 
-const links = [
-    { icon: FaRegEnvelope, label: 'Mensajes', notifications: 3 },
-    { icon: MdOutlineTaskAlt, label: 'Tasks', notifications: 4 },
-    { icon: BiStats, label: 'Visitas' },
-];
-
-const collections = [
-    { emoji: '👍', label: 'Sales' },
-    { emoji: '🚚', label: 'Deliveries' },
-    { emoji: '💸', label: 'Discounts' },
-    { emoji: '💰', label: 'Profits' },
-    { emoji: '✨', label: 'Reports' },
-    { emoji: '🛒', label: 'Orders' },
-    { emoji: '📅', label: 'Events' },
-    { emoji: '🙈', label: 'Debts' },
-    { emoji: '💁‍♀️', label: 'Customers' },
+const mockdata = [
+    {
+        icon: IconCode,
+        title: 'Open source',
+        description: 'This Pokémon’s cry is very loud and distracting',
+    },
+    {
+        icon: IconCoin,
+        title: 'Free for everyone',
+        description: 'The fluid of Smeargle’s tail secretions changes',
+    },
+    {
+        icon: IconBook,
+        title: 'Documentation',
+        description: 'Yanma is capable of seeing 360 degrees without',
+    },
+    {
+        icon: IconFingerprint,
+        title: 'Security',
+        description: 'The shell’s rounded shape and the grooves on its.',
+    },
+    {
+        icon: IconChartPie3,
+        title: 'Analytics',
+        description: 'This Pokémon uses its flying ability to quickly chase',
+    },
+    {
+        icon: IconNotification,
+        title: 'Notifications',
+        description: 'Combusken battles with the intensely hot flames it spews',
+    },
 ];
 
 export function Admin() {
-    const mainLinks = links.map((link) => (
-        <UnstyledButton key={link.label} className={classes.mainLink}>
-            <div className={classes.mainLinkInner}>
-                <link.icon size={20} className={classes.mainLinkIcon} />
-                <span>{link.label}</span>
-            </div>
-            {link.notifications && (
-                <Badge size="sm" variant="filled" className={classes.mainLinkBadge}>
-                    {link.notifications}
-                </Badge>
-            )}
+    const [drawerOpened, { toggle: toggleDrawer, close: closeDrawer }] = useDisclosure(false);
+    const [linksOpened, { toggle: toggleLinks }] = useDisclosure(false);
+    const theme = useMantineTheme();
+
+    const links = mockdata.map((item) => (
+        <UnstyledButton className={classes.subLink} key={item.title}>
+            <Group wrap="nowrap" align="flex-start">
+                <ThemeIcon size={34} variant="default" radius="md">
+                    <item.icon style={{ width: rem(22), height: rem(22) }} color={theme.colors.blue[6]} />
+                </ThemeIcon>
+                <div>
+                    <Text size="sm" fw={500}>
+                        {item.title}
+                    </Text>
+                    <Text size="xs" c="dimmed">
+                        {item.description}
+                    </Text>
+                </div>
+            </Group>
         </UnstyledButton>
     ));
 
-    const collectionLinks = collections.map((collection) => (
-        <a
-            href="#"
-            onClick={(event) => event.preventDefault()}
-            key={collection.label}
-            className={classes.collectionLink}
-        >
-            <span style={{ marginRight: rem(9), fontSize: rem(16) }}>{collection.emoji}</span>{' '}
-            {collection.label}
-        </a>
-    ));
-
     return (
-        <nav className={classes.navbar}>
-            <div className={classes.section}>
-                <Button />
-            </div>
+        <>
+            <Box pb={120}>
+                <header className={classes.header}>
+                    <Group justify="space-between" h="100%">
+                        <Text ta="center" c="cyan">Fernando Gonzalez</Text>
+                        <Group h="100%" gap={0} visibleFrom="sm">
+                            <a href="#" className={classes.link}>
+                                General
+                            </a>
+                            <a href="#" className={classes.link}>
+                                Certificaciones
+                            </a>
+                            <a href="#" className={classes.link}>
+                                Skills
+                            </a>
+                            <a href="#" className={classes.link}>
+                                Portafolio
+                            </a>
+                            <a href="#" className={classes.link}>
+                                Contacto
+                            </a>
+                        </Group>
 
-            <TextInput
-                placeholder="Search"
-                size="xs"
-                leftSection={<FaSearchengin style={{ width: rem(12), height: rem(12) }}  />}
-                rightSectionWidth={70}
-                rightSection={<Code className={classes.searchCode}>Ctrl + K</Code>}
-                styles={{ section: { pointerEvents: 'none' } }}
-                mb="sm"
-            />
+                        <Group visibleFrom="sm">
+                            <Button variant="light" color="cyan" radius="xs">Sign up</Button>
+                        </Group>
 
-            <div className={classes.section}>
-                <div className={classes.mainLinks}>{mainLinks}</div>
-            </div>
+                        <Burger opened={drawerOpened} onClick={toggleDrawer} hiddenFrom="sm" />
+                    </Group>
+                </header>
 
-            <div className={classes.section}>
-                <Group className={classes.collectionsHeader} justify="space-between">
-                    <Text size="xs" fw={500} c="dimmed">
-                        Collections
-                    </Text>
-                    <Tooltip label="Create collection" withArrow position="right">
-                        <ActionIcon variant="default" size={18}>
-                            <CiCirclePlus style={{ width: rem(12), height: rem(12) }}  />
-                        </ActionIcon>
-                    </Tooltip>
-                </Group>
-                <div className={classes.collections}>{collectionLinks}</div>
-            </div>
-        </nav>
+                <Drawer
+                    opened={drawerOpened}
+                    onClose={closeDrawer}
+                    size="100%"
+                    padding="md"
+                    title="Navigation"
+                    hiddenFrom="sm"
+                    zIndex={1000000}
+                >
+                    <ScrollArea h={`calc(100vh - ${rem(80)})`} mx="-md">
+                        <Divider my="sm" />
+
+                        <a href="#" className={classes.link}>
+                            Home
+                        </a>
+                        <UnstyledButton className={classes.link} onClick={toggleLinks}>
+                            <Center inline>
+                                <Box component="span" mr={5}>
+                                    Features
+                                </Box>
+                                <IconChevronDown
+                                    style={{ width: rem(16), height: rem(16) }}
+                                    color={theme.colors.blue[6]}
+                                />
+                            </Center>
+                        </UnstyledButton>
+                        <Collapse in={linksOpened}>{links}</Collapse>
+                        <a href="#" className={classes.link}>
+                            Learn
+                        </a>
+                        <a href="#" className={classes.link}>
+                            Academy
+                        </a>
+
+                        <Divider my="sm" />
+
+                        <Group justify="center" grow pb="xl" px="md">
+                            <Button variant="default">Log in</Button>
+                            <Button>Sign up</Button>
+                        </Group>
+                    </ScrollArea>
+                </Drawer>
+            </Box>
+            <AdminGeneral></AdminGeneral>
+        </>
     );
 }
