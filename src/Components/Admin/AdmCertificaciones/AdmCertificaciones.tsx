@@ -8,6 +8,8 @@ import { CertificacionesType } from '../../../Types/apiTypes';
 export function AdmCertificaciones() {
     const [editingItem, setEditingItem] = useState<CertificacionesType | null>(null);
     const [isModalOpen, setIsModalOpen] = useState(false);
+    const [isDescriptionModalOpen, setIsDescriptionModalOpen] = useState(false);
+    const [selectedDescription, setSelectedDescription] = useState('');
 
     const { fetch, post, put, del, data, response, error, loading, setData } = useApi<CertificacionesType[]>();
 
@@ -19,7 +21,7 @@ export function AdmCertificaciones() {
             anio: '',
             categoria: '',
             certificado: '',
-            icon: ''
+            icon: '',
         },
     });
 
@@ -46,13 +48,21 @@ export function AdmCertificaciones() {
 
     const handleEdit = (item: CertificacionesType) => {
         setEditingItem(item);
-        form.setValues(item);
+        form.setValues({
+            titulo: item.titulo,
+            institucion: item.institucion,
+            descripcion: item.descripcion,
+            anio: item.anio,
+            categoria: item.categoria,
+            certificado: item.certificado,
+            icon: item.icon,
+        });
         setIsModalOpen(true);
     };
 
     const handleDelete = async (item: CertificacionesType) => {
         try {
-            await del(`certificaciones/${item.id}/`);
+            await del(`certificado/${item.id}/`);
             setData(prevData => prevData ? prevData.filter(d => d.id !== item.id) : null);
         } catch (err) {
             console.error('Error al eliminar el item:', err);
@@ -62,17 +72,27 @@ export function AdmCertificaciones() {
     const renderDataRow = (row: CertificacionesType) => (
         <>
             <Table.Td>{row.id}</Table.Td>
+            <Table.Td>{row.icon}</Table.Td>
             <Table.Td>{row.titulo}</Table.Td>
             <Table.Td>{row.institucion}</Table.Td>
-            <Table.Td>{row.descripcion}</Table.Td>
+            <Table.Td>
+                <Button
+                    onClick={() => {
+                        setSelectedDescription(row.descripcion);
+                        setIsDescriptionModalOpen(true);
+                    }}
+                    size="xs"
+                >
+                    Ver descripción
+                </Button>
+            </Table.Td>
             <Table.Td>{row.anio}</Table.Td>
             <Table.Td>{row.categoria}</Table.Td>
             <Table.Td>{row.certificado}</Table.Td>
-            <Table.Td>{row.icon}</Table.Td>
         </>
     );
 
-    const headers = ['id', 'titulo', 'institucion', 'descripcion', 'año', 'categoria', 'certificado', 'icon'];
+    const headers = ['id', 'icon', 'titulo', 'institucion', 'descripción', 'año', 'categoria', 'certificado'];
 
     return (
         <Container size="lg" py="xl">
@@ -90,14 +110,14 @@ export function AdmCertificaciones() {
             />
 
             <Button onClick={() => setIsModalOpen(true)} variant="light" color="cyan" fullWidth mt="xl">
-                Agregar nueva certificación
+                Agregar datos
             </Button>
 
             <Modal opened={isModalOpen} onClose={() => {
                 setIsModalOpen(false);
                 setEditingItem(null);
                 form.reset();
-            }} title={editingItem ? "Editar Certificación" : "Agregar Certificación"}>
+            }} title={editingItem ? "Editar datos" : "Agregar datos"}>
                 <form onSubmit={form.onSubmit(handleSubmit)}>
                     <SimpleGrid cols={{ base: 1, sm: 2 }} mt="xl">
                         <TextInput
@@ -114,6 +134,7 @@ export function AdmCertificaciones() {
 
                     <TextInput
                         label="Descripcion"
+                        mt="md"
                         {...form.getInputProps('descripcion')}
                         c="cyan"
                     />
@@ -126,7 +147,7 @@ export function AdmCertificaciones() {
                     />
 
                     <TextInput
-                        label="Categoria"
+                        label="categoria"
                         mt="md"
                         {...form.getInputProps('categoria')}
                         c="cyan"
@@ -145,6 +166,14 @@ export function AdmCertificaciones() {
                         {...form.getInputProps('icon')}
                         c="cyan"
                     />
+
+                    <Modal
+                        opened={isDescriptionModalOpen}
+                        onClose={() => setIsDescriptionModalOpen(false)}
+                        title="Descripción"
+                    >
+                        <Text>{selectedDescription}</Text>
+                    </Modal>
 
                     <Group justify="center" mt="xl">
                         <Button variant="light" color="cyan" fullWidth type="submit" disabled={loading}>
