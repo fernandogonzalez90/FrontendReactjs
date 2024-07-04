@@ -152,10 +152,9 @@ export function AdmCertificaciones() {
                         </Button>
                     </Group>
                 </form>
+                {response && <Text c="teal.4" ta="center" py="xs">Operación realizada con éxito.</Text>}
+                {error && <Text c="red.4" ta="center" py="xs">Error: {error}</Text>}
             </Modal>
-
-            {response && <Text c="teal.4" ta="center" py="xs">Operación realizada con éxito.</Text>}
-            {error && <Text c="red.4" ta="center" py="xs">Error: {error}</Text>}
         </Container>
     );
 }
