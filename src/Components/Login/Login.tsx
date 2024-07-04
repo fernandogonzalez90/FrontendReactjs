@@ -28,10 +28,8 @@ const Login: React.FC = () => {
 
   return (
     <>
-
-
       <Container size={420} my={40}>
-        <Title ta="center" className={classes.title}>
+        <Title ta="center" className={classes.title} c='cyan'>
           Iniciar Sesion
         </Title>
 
@@ -45,7 +43,7 @@ const Login: React.FC = () => {
               value={password}
               onChange={(e) => setPassword(e.target.value)}
               placeholder="Password" required mt="md" />
-            <Button fullWidth mt="xl" type="submit">
+            <Button fullWidth mt="xl" type="submit" variant='light' color="cyan">
               Sign in
             </Button>
           </form>
