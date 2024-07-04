@@ -1,6 +1,6 @@
 import { TextInput, Textarea, SimpleGrid, Group, Title, Button, Container, Divider, Text } from '@mantine/core';
 import { useForm } from '@mantine/form';
-import { usePost } from '../usePost';
+import { useApi } from '../useApi';
 
 
 export function Contacto() {
@@ -22,7 +22,7 @@ export function Contacto() {
         },
     });
 
-    const { post, response, error, loading } = usePost();
+    const { post, response, error, loading } = useApi();
 
     const handleSubmit = async (values: typeof form.values) => {
         console.log('Submitting form with values:', values);
