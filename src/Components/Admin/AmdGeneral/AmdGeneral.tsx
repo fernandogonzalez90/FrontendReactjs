@@ -1,9 +1,10 @@
 import { useState, useEffect } from 'react';
-import { TextInput, SimpleGrid, Group, Title, Button, Container, Divider, Text, Modal, Table, FileInput } from '@mantine/core';
+import { TextInput, SimpleGrid, Group, Title, Button, Container, Text, Modal, Table, FileInput } from '@mantine/core';
 import { useForm } from '@mantine/form';
 import { Tabla } from '../Tabla/Tabla';
 import { useApi } from '../../useApi';
 import { GeneralType } from '../../../Types/apiTypes';
+import { IoIosAddCircle } from 'react-icons/io';
 
 export function AdmGeneral() {
     const [editingItem, setEditingItem] = useState<GeneralType | null>(null);
@@ -95,14 +96,18 @@ export function AdmGeneral() {
         </>
     );
 
-    const headers = ['id', 'titulo', 'subtitulo', 'descripción', 'imagen', 'github', 'linkedin', 'email', 'curriculum'];
+    const headers = ['ID', 'Titulo', 'Subtitulo', 'Descripción', 'Imagen', 'Github', 'Linkedin', 'Email', 'CV'];
 
     return (
-        <Container size="lg" py="xl">
-            <Divider my="md" color="cyan.3" />
-            <Title order={2} ta="center" c="cyan" mt="sm" pt="lg">
-                General
-            </Title>
+        <Container size="lg">
+            <Group justify="space-between" align="center" mb="md">
+                <Title order={2} c="cyan.3">
+                    General
+                </Title>
+                <Button onClick={() => setIsModalOpen(true)} variant="outline" color="cyan">
+                    <Text px="xs">Crear</Text> <IoIosAddCircle />
+                </Button>
+            </Group>
 
             <Tabla<GeneralType>
                 data={data || []}
@@ -110,11 +115,8 @@ export function AdmGeneral() {
                 headers={headers}
                 onEdit={handleEdit}
                 onDelete={handleDelete}
+            
             />
-
-            <Button onClick={() => setIsModalOpen(true)} variant="light" color="cyan" fullWidth mt="xl">
-                Agregar datos
-            </Button>
 
             <Modal opened={isModalOpen} onClose={() => {
                 setIsModalOpen(false);

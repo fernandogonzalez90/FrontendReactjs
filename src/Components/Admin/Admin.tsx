@@ -14,9 +14,10 @@ import classes from './Admin.module.css';
 import { AdmCertificaciones } from './AdmCertificaciones/AdmCertificaciones';
 import { useEffect, useState } from 'react';
 import { AdmGeneral } from './AmdGeneral/AmdGeneral';
-import {AdmPortafolio} from './AdmPortafolio/AdmPortafolio';
-import {AdmSkills} from './AdmSkills/AdmSkills';
-import {AdmContacto} from './AdmContacto/AdmContacto';
+import { AdmPortafolio } from './AdmPortafolio/AdmPortafolio';
+import { AdmSkills } from './AdmSkills/AdmSkills';
+import { AdmContacto } from './AdmContacto/AdmContacto';
+import { AdmSoftSkills } from './AdmSoftSkills/AdmSolftSkills';
 
 
 
@@ -39,6 +40,8 @@ export function Admin() {
                 return <AdmPortafolio></AdmPortafolio>;
             case 'skills':
                 return <AdmSkills></AdmSkills>;
+            case 'softskills':
+                return <AdmSoftSkills></AdmSoftSkills>;
             case 'contacto':
                 return <AdmContacto></AdmContacto>;
             default:
@@ -48,7 +51,7 @@ export function Admin() {
 
     return (
         <>
-            <Box pb={120}>
+            <Box>
                 <header className={classes.header}>
                     <Group justify="space-between" h="100%">
                         <Text ta="center" c="cyan">Fernando Gonzalez</Text>
@@ -65,16 +68,19 @@ export function Admin() {
                             <a href="#" className={classes.link} onClick={() => setActiveComponent('skills')}>
                                 Skills
                             </a>
+                            <a href="#" className={classes.link} onClick={() => setActiveComponent('softskills')}>
+                                Soft Skills
+                            </a>
                             <a href="#" className={classes.link} onClick={() => setActiveComponent('portafolio')}>
                                 Portafolio
                             </a>
                             <a href="#" className={classes.link} onClick={() => setActiveComponent('contacto')}>
-                                Contacto
+                                Mensajes
                             </a>
                         </Group>
 
                         <Group visibleFrom="sm">
-                            <Button variant="light" color="cyan" radius="xs">Logout</Button>
+                            <Button variant="outline" color="cyan" radius="xs">Logout</Button>
                         </Group>
 
                         <Burger opened={drawerOpened} onClick={toggleDrawer} hiddenFrom="sm" />
@@ -105,6 +111,9 @@ export function Admin() {
                         <a href="#" className={classes.link} onClick={() => setActiveComponent('skills')}>
                             Skills
                         </a>
+                        <a href="#" className={classes.link} onClick={() => setActiveComponent('softskills')}>
+                                Soft Skills
+                            </a>
                         <a href="#" className={classes.link} onClick={() => setActiveComponent('portafolio')}>
                             Portafolio
                         </a>

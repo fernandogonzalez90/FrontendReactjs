@@ -1,9 +1,10 @@
 import { useState, useEffect } from 'react';
-import { TextInput, SimpleGrid, Group, Title, Button, Container, Divider, Text, Modal, Table } from '@mantine/core';
+import { TextInput, SimpleGrid, Group, Title, Button, Container, Text, Modal, Table } from '@mantine/core';
 import { useForm } from '@mantine/form';
 import { Tabla } from '../Tabla/Tabla';
 import { useApi } from '../../useApi';
 import { SoftSkillsType } from '../../../Types/apiTypes';
+import { IoIosAddCircle } from 'react-icons/io';
 
 export function AdmSoftSkills() {
   const [editingItem, setEditingItem] = useState<SoftSkillsType | null>(null);
@@ -65,14 +66,18 @@ export function AdmSoftSkills() {
     </>
   );
 
-  const headers = ['id', 'titulo', 'color'];
+  const headers = ['ID', 'Titulo', 'Color'];
 
   return (
-    <Container size="lg" py="xl">
-      <Divider my="md" color="cyan.3" />
-      <Title order={2} ta="center" c="cyan" mt="sm" pt="lg">
-        Skills
-      </Title>
+    <Container size="lg">
+      <Group justify="space-between" align="center" mb="md">
+        <Title order={2} c="cyan.3">
+          Soft Skills
+        </Title>
+        <Button onClick={() => setIsModalOpen(true)} variant="outline" color="cyan">
+          <Text px="xs">Crear</Text> <IoIosAddCircle />
+        </Button>
+      </Group>
 
       <Tabla<SoftSkillsType>
         data={data || []}
@@ -81,10 +86,6 @@ export function AdmSoftSkills() {
         onEdit={handleEdit}
         onDelete={handleDelete}
       />
-
-      <Button onClick={() => setIsModalOpen(true)} variant="light" color="cyan" fullWidth mt="xl">
-        Agregar Soft Skill
-      </Button>
 
       <Modal opened={isModalOpen} onClose={() => {
         setIsModalOpen(false);

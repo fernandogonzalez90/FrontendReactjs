@@ -16,7 +16,7 @@ export function Tabla<T>({ data, renderRow, headers, onEdit, onDelete }: TablaPr
   const [scrolled, setScrolled] = useState(false);
 
   return (
-    <ScrollArea h={300} onScrollPositionChange={({ y }) => setScrolled(y !== 0)}>
+    <ScrollArea h={400} onScrollPositionChange={({ y }) => setScrolled(y !== 0)}>
       <Table miw={700}>
         <Table.Thead className={cx(classes.header, { [classes.scrolled]: scrolled })}>
           <Table.Tr>

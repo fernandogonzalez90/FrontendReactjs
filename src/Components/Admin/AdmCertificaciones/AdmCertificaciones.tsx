@@ -1,9 +1,11 @@
 import { useState, useEffect } from 'react';
-import { TextInput, SimpleGrid, Group, Title, Button, Container, Divider, Text, Modal, Table } from '@mantine/core';
+import { TextInput, SimpleGrid, Group, Title, Button, Container, Text, Modal, Table } from '@mantine/core';
 import { useForm } from '@mantine/form';
 import { Tabla } from '../Tabla/Tabla';
 import { useApi } from '../../useApi';
 import { CertificacionesType } from '../../../Types/apiTypes';
+import { IoIosAddCircle } from "react-icons/io";
+
 
 export function AdmCertificaciones() {
     const [editingItem, setEditingItem] = useState<CertificacionesType | null>(null);
@@ -92,14 +94,18 @@ export function AdmCertificaciones() {
         </>
     );
 
-    const headers = ['id', 'icon', 'titulo', 'institucion', 'descripción', 'año', 'categoria', 'certificado'];
+    const headers = ['ID', 'Icon', 'Titulo', 'Institucion', 'Descripción', 'Año', 'Categoria', 'Certificado'];
 
     return (
-        <Container size="lg" py="xl">
-            <Divider my="md" color="cyan.3" />
-            <Title order={2} ta="center" c="cyan" mt="sm" pt="lg">
-                Certificaciones
-            </Title>
+        <Container size="lg">
+            <Group justify="space-between" align="center" mb="md">
+                <Title order={2} c="cyan.3">
+                    Certificaciones
+                </Title>
+                <Button onClick={() => setIsModalOpen(true)} variant="outline" color="cyan">
+                    <Text px="xs">Crear</Text> <IoIosAddCircle />
+                </Button>
+            </Group>
 
             <Tabla<CertificacionesType>
                 data={data || []}
@@ -108,10 +114,6 @@ export function AdmCertificaciones() {
                 onEdit={handleEdit}
                 onDelete={handleDelete}
             />
-
-            <Button onClick={() => setIsModalOpen(true)} variant="light" color="cyan" fullWidth mt="xl">
-                Agregar Certificacion
-            </Button>
 
             <Modal opened={isModalOpen} onClose={() => {
                 setIsModalOpen(false);

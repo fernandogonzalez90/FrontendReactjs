@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { TextInput, SimpleGrid, Group, Title, Button, Container, Divider, Text, Modal, Table,Textarea } from '@mantine/core';
+import { TextInput, SimpleGrid, Group, Title, Button, Container, Text, Modal, Table,Textarea } from '@mantine/core';
 import { useForm } from '@mantine/form';
 import { Tabla } from '../Tabla/Tabla';
 import { useApi } from '../../useApi';
@@ -80,18 +80,17 @@ export function AdmContacto() {
           }}
           size="xs"
         >
-          Ver descripción
+          Ver Mensaje
         </Button>
       </Table.Td>
     </>
   );
 
-  const headers = ['id', 'nombre', 'apellidp', 'email', 'asunto', 'mensaje'];
+  const headers = ['ID', 'Nombre', 'Apellidp', 'Email', 'Asunto', 'Mensaje'];
 
   return (
-    <Container size="lg" py="xl">
-      <Divider my="md" color="cyan.3" />
-      <Title order={2} ta="center" c="cyan" mt="sm" pt="lg">
+    <Container size="lg">
+      <Title order={2} ta="center" c="cyan" mt="sm">
         Mensajes
       </Title>
 
@@ -102,10 +101,6 @@ export function AdmContacto() {
         onEdit={handleEdit}
         onDelete={handleDelete}
       />
-
-      <Button onClick={() => setIsModalOpen(true)} variant="light" color="cyan" fullWidth mt="xl">
-        Enviar Mensaje
-      </Button>
 
       <Modal opened={isModalOpen} onClose={() => {
         setIsModalOpen(false);

@@ -1,9 +1,10 @@
 import { useState, useEffect } from 'react';
-import { TextInput, SimpleGrid, Group, Title, Button, Container, Divider, Text, Modal, Table, Anchor, Textarea } from '@mantine/core';
+import { TextInput, SimpleGrid, Group, Title, Button, Container, Text, Modal, Table, Anchor, Textarea } from '@mantine/core';
 import { useForm } from '@mantine/form';
 import { Tabla } from '../Tabla/Tabla';
 import { useApi } from '../../useApi';
 import { ProyectosType } from '../../../Types/apiTypes';
+import { IoIosAddCircle } from 'react-icons/io';
 
 export function AdmPortafolio() {
   const [editingItem, setEditingItem] = useState<ProyectosType | null>(null);
@@ -96,14 +97,18 @@ export function AdmPortafolio() {
     </>
   );
 
-  const headers = ['id', 'iconos', 'titulo', 'categoria', 'descripción', 'repositorio', 'ver live'];
+  const headers = ['ID', 'Iconos', 'Titulo', 'Categoria', 'Descripción', 'Repositorio', 'Ver live'];
 
   return (
-    <Container size="lg" py="xl">
-      <Divider my="md" color="cyan.3" />
-      <Title order={2} ta="center" c="cyan" mt="sm" pt="lg">
-        Portafolio
-      </Title>
+    <Container size="lg">
+      <Group justify="space-between" align="center" mb="md">
+                <Title order={2} c="cyan.3">
+                    Proyectos
+                </Title>
+                <Button onClick={() => setIsModalOpen(true)} variant="outline" color="cyan">
+                    <Text px="xs">Crear</Text> <IoIosAddCircle />
+                </Button>
+            </Group>
 
       <Tabla<ProyectosType>
         data={data || []}
@@ -112,10 +117,6 @@ export function AdmPortafolio() {
         onEdit={handleEdit}
         onDelete={handleDelete}
       />
-
-      <Button onClick={() => setIsModalOpen(true)} variant="light" color="cyan" fullWidth mt="xl">
-        Agregar Proyecto
-      </Button>
 
       <Modal opened={isModalOpen} onClose={() => {
         setIsModalOpen(false);
