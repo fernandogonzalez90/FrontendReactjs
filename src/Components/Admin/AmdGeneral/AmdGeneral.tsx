@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { TextInput, SimpleGrid, Group, Title, Button, Container, Text, Modal, Table, FileInput } from '@p0?: { headers: { 'Content - Type': string; }; }p0: { headers: { 'Content - Type': string; }; }p0: { headers: { 'Content - Type': string; }; }mantine/core';
+import { TextInput, SimpleGrid, Group, Title, Button, Container, Text, Modal, Table, FileInput } from '@mantine/core';
 import { useForm } from '@mantine/form';
 import { Tabla } from '../Tabla/Tabla';
 import { useApi } from '../../useApi';
@@ -12,7 +12,7 @@ export function AdmGeneral() {
     const [isDescriptionModalOpen, setIsDescriptionModalOpen] = useState(false);
     const [selectedDescription, setSelectedDescription] = useState('');
 
-    const { fetch, post, put, del, data, response, error, loading, setData } = useApi<GeneralType[]>({
+    const { get, post, put, del, fetch, data, response, error, loading, setData } = useApi<GeneralType[]>({
         headers: {
             'Content-Type': 'multipart/form-data',
         },
@@ -30,6 +30,16 @@ export function AdmGeneral() {
             curriculum: ''
         },
     });
+
+    useEffect(() => {
+        return () => {
+            data?.forEach(item => {
+                if (item.imagen instanceof File) {
+                    URL.revokeObjectURL(URL.createObjectURL(item.imagen));
+                }
+            });
+        };
+    }, [data]);
 
     useEffect(() => {
         fetch('general/');
@@ -61,18 +71,35 @@ export function AdmGeneral() {
         }
     };
 
-    const handleEdit = (item: GeneralType) => {
+    const handleEdit = async (item: GeneralType) => {
         setEditingItem(item);
         form.setValues({
             titulo: item.titulo,
             subtitulo: item.subtitulo,
             descripcion: item.descripcion,
-            imagen: item.imagen || null, // Convertir a null si es una cadena vacía
+            imagen: null,
             github: item.github,
             linkedin: item.linkedin,
             email: item.email,
             curriculum: item.curriculum
         });
+
+        if (typeof item.imagen === 'string' && item.imagen) {
+            try {
+                const response = await get(item.imagen, { responseType: 'blob' });
+                if (response instanceof Blob) {
+                    const file = new File([response], "image.jpg", { type: response.type });
+                    form.setFieldValue('imagen', file);
+                } else {
+                    console.error('La respuesta no es un Blob');
+                }
+            } catch (error) {
+                console.error('Error al cargar la imagen:', error);
+            }
+        } else if (item.imagen instanceof File) {
+            form.setFieldValue('imagen', item.imagen);
+        }
+
         setIsModalOpen(true);
     };
 
@@ -101,7 +128,17 @@ export function AdmGeneral() {
                     Ver descripción
                 </Button>
             </Table.Td>
-            <Table.Td>{row.imagen}</Table.Td>
+            <Table.Td>
+                {row.imagen ? (
+                    <img
+                        src={typeof row.imagen === 'string' ? row.imagen : URL.createObjectURL(row.imagen)}
+                        alt="Imagen"
+                        style={{ width: '50px', height: '50px', objectFit: 'cover' }}
+                    />
+                ) : (
+                    'Sin imagen'
+                )}
+            </Table.Td>
             <Table.Td>{row.github}</Table.Td>
             <Table.Td>{row.linkedin}</Table.Td>
             <Table.Td>{row.email}</Table.Td>
