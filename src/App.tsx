@@ -11,7 +11,8 @@ const App: React.FC = () => {
 
   return (
     <MantineProvider defaultColorScheme="dark">
-      <Router>
+      <Admin></Admin>
+      {/* <Router>
         <Routes>
           <Route path='/' element={<PublicComponent></PublicComponent>} />
           <Route path="/login" element={<Login />} />
@@ -24,7 +25,7 @@ const App: React.FC = () => {
             }
           />
         </Routes>
-      </Router>
+      </Router> */}
     </MantineProvider>
   );
 };
