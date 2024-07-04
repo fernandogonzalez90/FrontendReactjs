@@ -12,11 +12,25 @@ import {
 import { useDisclosure } from '@mantine/hooks';
 import classes from './Admin.module.css';
 import { AdmCertificaciones } from './AdmCertificaciones/AdmCertificaciones';
+import { useState } from 'react';
+import { AdmGeneral } from './AmdGeneral/AmdGeneral';
 
 
 
 export function Admin() {
     const [drawerOpened, { toggle: toggleDrawer, close: closeDrawer }] = useDisclosure(false);
+    const [activeComponent, setActiveComponent] = useState<string | null>(null);
+
+    const renderComponent= () => {
+        switch (activeComponent){
+            case 'general':
+                return <AdmGeneral></AdmGeneral>;
+            case 'certificaciones':
+                return <AdmCertificaciones></AdmCertificaciones>;
+            default:
+                return <p>A ver.</p>
+        }
+    };
 
     return (
         <>
@@ -25,10 +39,10 @@ export function Admin() {
                     <Group justify="space-between" h="100%">
                         <Text ta="center" c="cyan">Fernando Gonzalez</Text>
                         <Group h="100%" gap={0} visibleFrom="sm">
-                            <a href="#" className={classes.link}>
+                            <a href="" className={classes.link} onClick={()=> setActiveComponent('general')}>
                                 General
                             </a>
-                            <a href="#" className={classes.link}>
+                            <a href="#" className={classes.link} onClick={()=> setActiveComponent('certificaciones')}>
                                 Certificaciones
                             </a>
                             <a href="#" className={classes.link}>
@@ -81,7 +95,9 @@ export function Admin() {
                     </ScrollArea>
                 </Drawer>
             </Box>
-            <AdmCertificaciones></AdmCertificaciones>
+            <Box>
+                {renderComponent()}
+            </Box>
         </>
     );
 }
