@@ -110,7 +110,7 @@ export function AdmCertificaciones() {
             />
 
             <Button onClick={() => setIsModalOpen(true)} variant="light" color="cyan" fullWidth mt="xl">
-                Agregar datos
+                Agregar Certificacion
             </Button>
 
             <Modal opened={isModalOpen} onClose={() => {
@@ -167,14 +167,6 @@ export function AdmCertificaciones() {
                         c="cyan"
                     />
 
-                    <Modal
-                        opened={isDescriptionModalOpen}
-                        onClose={() => setIsDescriptionModalOpen(false)}
-                        title="Descripción"
-                    >
-                        <Text>{selectedDescription}</Text>
-                    </Modal>
-
                     <Group justify="center" mt="xl">
                         <Button variant="light" color="cyan" fullWidth type="submit" disabled={loading}>
                             {loading ? 'Enviando...' : editingItem ? 'Actualizar' : 'Agregar'}
@@ -183,6 +175,13 @@ export function AdmCertificaciones() {
                 </form>
                 {response && <Text c="teal.4" ta="center" py="xs">Operación realizada con éxito.</Text>}
                 {error && <Text c="red.4" ta="center" py="xs">Error: {error}</Text>}
+            </Modal>
+            <Modal
+                opened={isDescriptionModalOpen}
+                onClose={() => setIsDescriptionModalOpen(false)}
+                title="Descripción"
+            >
+                <Text>{selectedDescription}</Text>
             </Modal>
         </Container>
     );

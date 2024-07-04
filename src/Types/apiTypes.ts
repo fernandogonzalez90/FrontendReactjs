@@ -71,6 +71,15 @@ export interface ProyectosType {
   iconos: string;
 }
 
+export interface ContactoType{
+  id: string;
+  nombre: string;
+  apellido: string;
+  email: string;
+  asunto: string;
+  mensaje: string;
+}
+
 export interface AuthContextType {
   token: string | null;
   login: (username: string, password: string) => Promise<void>;
