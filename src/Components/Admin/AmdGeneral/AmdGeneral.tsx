@@ -8,18 +8,21 @@ import { GeneralType } from '../../../Types/apiTypes';
 export function AdmGeneral() {
     const [editingItem, setEditingItem] = useState<GeneralType | null>(null);
     const [isModalOpen, setIsModalOpen] = useState(false);
+    const [isDescriptionModalOpen, setIsDescriptionModalOpen] = useState(false);
+    const [selectedDescription, setSelectedDescription] = useState('');
 
     const { fetch, post, put, del, data, response, error, loading, setData } = useApi<GeneralType[]>();
 
     const form = useForm({
         initialValues: {
             titulo: '',
-            institucion: '',
+            subtitulo: '',
             descripcion: '',
-            anio: '',
-            categoria: '',
-            certificado: '',
-            icon: ''
+            imagen: null as string | null,
+            github: '',
+            linkedin: '',
+            email: '',
+            curriculum: ''
         },
     });
 
@@ -46,7 +49,16 @@ export function AdmGeneral() {
 
     const handleEdit = (item: GeneralType) => {
         setEditingItem(item);
-        form.setValues(item);
+        form.setValues({
+            titulo: item.titulo,
+            subtitulo: item.subtitulo,
+            descripcion: item.descripcion,
+            imagen: item.imagen || null, // Convertir a null si es una cadena vacía
+            github: item.github,
+            linkedin: item.linkedin,
+            email: item.email,
+            curriculum: item.curriculum
+        });
         setIsModalOpen(true);
     };
 
@@ -64,7 +76,17 @@ export function AdmGeneral() {
             <Table.Td>{row.id}</Table.Td>
             <Table.Td>{row.titulo}</Table.Td>
             <Table.Td>{row.subtitulo}</Table.Td>
-            <Table.Td>{row.descripcion}</Table.Td>
+            <Table.Td>
+                <Button
+                    onClick={() => {
+                        setSelectedDescription(row.descripcion);
+                        setIsDescriptionModalOpen(true);
+                    }}
+                    size="xs"
+                >
+                    Ver descripción
+                </Button>
+            </Table.Td>
             <Table.Td>{row.imagen}</Table.Td>
             <Table.Td>{row.github}</Table.Td>
             <Table.Td>{row.linkedin}</Table.Td>
@@ -73,7 +95,7 @@ export function AdmGeneral() {
         </>
     );
 
-    const headers = ['id', 'titulo', 'institucion', 'descripcion', 'año', 'categoria', 'certificado', 'icon'];
+    const headers = ['id', 'titulo', 'subtitulo', 'descripción', 'imagen', 'github', 'linkedin', 'email', 'curriculum'];
 
     return (
         <Container size="lg" py="xl">
@@ -98,7 +120,7 @@ export function AdmGeneral() {
                 setIsModalOpen(false);
                 setEditingItem(null);
                 form.reset();
-            }} title={editingItem ? "Editar Certificación" : "Agregar Certificación"}>
+            }} title={editingItem ? "Editar datos" : "Agregar datos"}>
                 <form onSubmit={form.onSubmit(handleSubmit)}>
                     <SimpleGrid cols={{ base: 1, sm: 2 }} mt="xl">
                         <TextInput
@@ -161,6 +183,14 @@ export function AdmGeneral() {
                         {...form.getInputProps('curriculum')}
                         c="cyan"
                     />
+
+                    <Modal
+                        opened={isDescriptionModalOpen}
+                        onClose={() => setIsDescriptionModalOpen(false)}
+                        title="Descripción"
+                    >
+                        <Text>{selectedDescription}</Text>
+                    </Modal>
 
                     <Group justify="center" mt="xl">
                         <Button variant="light" color="cyan" fullWidth type="submit" disabled={loading}>
