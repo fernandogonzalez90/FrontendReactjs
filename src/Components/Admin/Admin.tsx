@@ -10,12 +10,8 @@ import {
     Drawer,
     ScrollArea,
     rem,
-    useMantineTheme,
 } from '@mantine/core';
 import { useDisclosure } from '@mantine/hooks';
-import {
-    IconChevronDown,
-} from '@tabler/icons-react';
 import classes from './Admin.module.css';
 import { AdmCertificaciones } from './AdmCertificaciones/AdmCertificaciones';
 
@@ -24,7 +20,6 @@ import { AdmCertificaciones } from './AdmCertificaciones/AdmCertificaciones';
 export function Admin() {
     const [drawerOpened, { toggle: toggleDrawer, close: closeDrawer }] = useDisclosure(false);
     const [linksOpened, { toggle: toggleLinks }] = useDisclosure(false);
-    const theme = useMantineTheme();
 
     return (
         <>
