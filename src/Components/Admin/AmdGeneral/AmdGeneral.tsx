@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { TextInput, SimpleGrid, Group, Title, Button, Container, Text, Modal, Table, FileInput } from '@mantine/core';
+import { TextInput, SimpleGrid, Group, Title, Button, Container, Text, Modal, Table, FileInput } from '@p0?: { headers: { 'Content - Type': string; }; }p0: { headers: { 'Content - Type': string; }; }p0: { headers: { 'Content - Type': string; }; }mantine/core';
 import { useForm } from '@mantine/form';
 import { Tabla } from '../Tabla/Tabla';
 import { useApi } from '../../useApi';
@@ -12,14 +12,18 @@ export function AdmGeneral() {
     const [isDescriptionModalOpen, setIsDescriptionModalOpen] = useState(false);
     const [selectedDescription, setSelectedDescription] = useState('');
 
-    const { fetch, post, put, del, data, response, error, loading, setData } = useApi<GeneralType[]>();
+    const { fetch, post, put, del, data, response, error, loading, setData } = useApi<GeneralType[]>({
+        headers: {
+            'Content-Type': 'multipart/form-data',
+        },
+    });
 
     const form = useForm({
         initialValues: {
             titulo: '',
             subtitulo: '',
             descripcion: '',
-            imagen: null as string | null,
+            imagen: null as File | null,
             github: '',
             linkedin: '',
             email: '',
@@ -33,11 +37,20 @@ export function AdmGeneral() {
 
     const handleSubmit = async (values: typeof form.values) => {
         try {
+            const formData = new FormData();
+            (Object.keys(values) as Array<keyof typeof values>).forEach(key => {
+                if (key === 'imagen' && values[key] instanceof File) {
+                    formData.append(key, values[key] as File);
+                } else if (values[key] !== null) {
+                    formData.append(key, values[key] as string);
+                }
+            });
+
             if (editingItem) {
-                const updatedItem = await put(`general/${editingItem.id}/`, values);
+                const updatedItem = await put(`general/${editingItem.id}/`, formData);
                 setData(prevData => prevData ? prevData.map(item => item.id === editingItem.id ? updatedItem : item) : null);
             } else {
-                const newItem = await post('general/', values);
+                const newItem = await post('general/', formData);
                 setData(prevData => prevData ? [...prevData, newItem] : [newItem]);
             }
             form.reset();
@@ -115,7 +128,7 @@ export function AdmGeneral() {
                 headers={headers}
                 onEdit={handleEdit}
                 onDelete={handleDelete}
-            
+
             />
 
             <Modal opened={isModalOpen} onClose={() => {
@@ -148,7 +161,8 @@ export function AdmGeneral() {
                         radius="xs"
                         label="Imagen"
                         withAsterisk
-                        placeholder="Input placeholder"
+                        placeholder="Imagen"
+                        accept="image/*"
                         {...form.getInputProps('imagen')}
                     />
 

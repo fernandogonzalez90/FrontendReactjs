@@ -25,7 +25,7 @@ export interface GeneralType {
   titulo: string;
   subtitulo: string;
   descripcion: string;
-  imagen: string;
+  imagen: File;
   github: string;
   linkedin: string;
   email: string;
