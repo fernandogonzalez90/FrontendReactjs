@@ -149,7 +149,7 @@ export function AdmCertificaciones() {
                     />
 
                     <TextInput
-                        label="categoria"
+                        label="Categoria"
                         mt="md"
                         {...form.getInputProps('categoria')}
                         c="cyan"
