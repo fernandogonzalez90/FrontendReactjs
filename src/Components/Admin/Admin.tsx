@@ -76,7 +76,7 @@ export function Admin() {
 
                         <Group justify="center" grow pb="xl" px="md">
                             <Button variant="default">Log in</Button>
-                            <Button>Sign up</Button>
+                            <Button>Exit</Button>
                         </Group>
                     </ScrollArea>
                 </Drawer>
