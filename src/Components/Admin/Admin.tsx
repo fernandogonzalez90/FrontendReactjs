@@ -1,10 +1,8 @@
 import {
     Group,
     Button,
-    UnstyledButton,
     Text,
     Divider,
-    Center,
     Box,
     Burger,
     Drawer,
@@ -19,7 +17,6 @@ import { AdmCertificaciones } from './AdmCertificaciones/AdmCertificaciones';
 
 export function Admin() {
     const [drawerOpened, { toggle: toggleDrawer, close: closeDrawer }] = useDisclosure(false);
-    const [linksOpened, { toggle: toggleLinks }] = useDisclosure(false);
 
     return (
         <>
@@ -68,13 +65,6 @@ export function Admin() {
                         <a href="#" className={classes.link}>
                             Home
                         </a>
-                        <UnstyledButton className={classes.link} onClick={toggleLinks}>
-                            <Center inline>
-                                <Box component="span" mr={5}>
-                                    Features
-                                </Box>
-                            </Center>
-                        </UnstyledButton>
                         <a href="#" className={classes.link}>
                             Learn
                         </a>
