@@ -5,7 +5,7 @@ import { Tabla } from '../Tabla/Tabla';
 import { useApi } from '../../useApi';
 import { ContactoType } from '../../../Types/apiTypes';
 
-export function AdmCertificaciones() {
+export function AdmContacto() {
   const [editingItem, setEditingItem] = useState<ContactoType | null>(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [isDescriptionModalOpen, setIsDescriptionModalOpen] = useState(false);

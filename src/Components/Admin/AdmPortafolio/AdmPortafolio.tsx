@@ -5,7 +5,7 @@ import { Tabla } from '../Tabla/Tabla';
 import { useApi } from '../../useApi';
 import { ProyectosType } from '../../../Types/apiTypes';
 
-export function AdmCertificaciones() {
+export function AdmPortafolio() {
   const [editingItem, setEditingItem] = useState<ProyectosType | null>(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [isDescriptionModalOpen, setIsDescriptionModalOpen] = useState(false);

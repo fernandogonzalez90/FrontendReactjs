@@ -14,9 +14,9 @@ import classes from './Admin.module.css';
 import { AdmCertificaciones } from './AdmCertificaciones/AdmCertificaciones';
 import { useEffect, useState } from 'react';
 import { AdmGeneral } from './AmdGeneral/AmdGeneral';
-import AdmPortafolio from './AdmPortafolio/AdmPortafolio';
-import AdmSkills from './AdmSkills/AdmSkills';
-import AdmContacto from './AdmContacto/AdmContacto';
+import {AdmPortafolio} from './AdmPortafolio/AdmPortafolio';
+import {AdmSkills} from './AdmSkills/AdmSkills';
+import {AdmContacto} from './AdmContacto/AdmContacto';
 
 
 
