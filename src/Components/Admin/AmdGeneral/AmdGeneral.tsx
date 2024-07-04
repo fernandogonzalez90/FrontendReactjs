@@ -131,17 +131,11 @@ export function AdmGeneral() {
                             c="cyan"
                         />
                         <TextInput
-                            label="Institucion"
-                            {...form.getInputProps('institucion')}
+                            label="Subtitulo"
+                            {...form.getInputProps('subtitulo')}
                             c="cyan"
                         />
                     </SimpleGrid>
-
-                    <TextInput
-                        label="Subtitulo"
-                        {...form.getInputProps('subtitulo')}
-                        c="cyan"
-                    />
 
                     <TextInput
                         label="Descripcion"
