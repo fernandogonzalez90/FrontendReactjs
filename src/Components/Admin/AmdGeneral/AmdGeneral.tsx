@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { TextInput, SimpleGrid, Group, Title, Button, Container, Text, Modal, Table, FileInput } from '@mantine/core';
+import { TextInput, SimpleGrid, Group, Title, Button, Container, Text, Modal, Table, FileInput, Anchor } from '@mantine/core';
 import { useForm } from '@mantine/form';
 import { Tabla } from '../Tabla/Tabla';
 import { useApi } from '../../useApi';
@@ -141,10 +141,24 @@ export function AdmGeneral() {
                     Ver Descripción
                 </Button>
             </Table.Td>
-            <Table.Td>{row.github}</Table.Td>
-            <Table.Td>{row.linkedin}</Table.Td>
-            <Table.Td>{row.email}</Table.Td>
-            <Table.Td>{row.curriculum}</Table.Td>
+            <Table.Td>
+                <Anchor href={row.github} underline='hover'>
+                    GitHub
+                </Anchor>s
+            </Table.Td>
+            <Table.Td>
+                <Anchor href={row.linkedin} underline='hover'>
+                    LinkedIn
+                </Anchor>
+            </Table.Td>
+            <Table.Td>
+                {row.email}
+            </Table.Td>
+            <Table.Td>
+                <Anchor href={row.curriculum} underline='hover'>
+                    CV
+                </Anchor>
+            </Table.Td>
         </>
     );
 
