@@ -1,4 +1,4 @@
-import { ActionIcon, Anchor, Card, Center, Group, Menu, Text, ThemeIcon, rem } from '@mantine/core'
+import { ActionIcon, Anchor, Button, Card, Center, Group, Menu, Modal, Text, ThemeIcon, rem } from '@mantine/core'
 import { CardComponentProps } from '../../Types/apiTypes'
 import iconMap from '../IconMap'
 import { PiCertificate } from 'react-icons/pi'
@@ -6,8 +6,11 @@ import { HiOutlineDotsVertical } from 'react-icons/hi'
 import { CiCirclePlus } from 'react-icons/ci'
 import { FaFolderClosed } from "react-icons/fa6";
 import { FaEye, FaGithub } from 'react-icons/fa'
+import { useState } from 'react'
 
 const CardComponent: React.FC<CardComponentProps> = ({ datos }) => {
+    const [isDescriptionModalOpen, setIsDescriptionModalOpen] = useState(false);
+    const [selectedDescription, setSelectedDescription] = useState('');
     const iconosArray = datos.iconos ? datos.iconos.split(',') : [];
     return (
         <Card withBorder shadow="sm" radius="md" key={datos.id}>
@@ -78,11 +81,13 @@ const CardComponent: React.FC<CardComponentProps> = ({ datos }) => {
             <br />
             <Card.Section withBorder inheritPadding py="xs" >
                 {datos.anio &&
-                    <Text ta="center" fw={700}>
-                        <Anchor href="#" target="_blank" underline="never">
-                            <Text c="cyan">Temas Aprendidos</Text>
-                        </Anchor>
-                    </Text>}
+                    <Button fullWidth variant='light' onClick={() => {
+                        if (datos.descripcion) {
+                            setSelectedDescription(datos.descripcion);
+                            setIsDescriptionModalOpen(true);
+                        }
+                    }}> Temas Aprendidos</Button>
+                }
 
                 <Center>
                     <Group align='center'>
@@ -94,6 +99,13 @@ const CardComponent: React.FC<CardComponentProps> = ({ datos }) => {
                     </Group>
                 </Center>
             </Card.Section>
+            <Modal
+                opened={isDescriptionModalOpen}
+                onClose={() => setIsDescriptionModalOpen(false)}
+                title="Descripción"
+            >
+                <Text>{selectedDescription}</Text>
+            </Modal>
         </Card>
     )
 }
