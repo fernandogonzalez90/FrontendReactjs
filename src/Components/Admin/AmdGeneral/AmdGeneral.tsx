@@ -115,19 +115,6 @@ export function AdmGeneral() {
     const renderDataRow = (row: GeneralType) => (
         <>
             <Table.Td>{row.id}</Table.Td>
-            <Table.Td>{row.titulo}</Table.Td>
-            <Table.Td>{row.subtitulo}</Table.Td>
-            <Table.Td>
-                <Button
-                    onClick={() => {
-                        setSelectedDescription(row.descripcion);
-                        setIsDescriptionModalOpen(true);
-                    }}
-                    size="xs"
-                >
-                    Ver descripción
-                </Button>
-            </Table.Td>
             <Table.Td>
                 {row.imagen ? (
                     <img
@@ -139,6 +126,21 @@ export function AdmGeneral() {
                     'Sin imagen'
                 )}
             </Table.Td>
+            <Table.Td>{row.titulo}</Table.Td>
+            <Table.Td>{row.subtitulo}</Table.Td>
+            <Table.Td>
+                <Button
+                    onClick={() => {
+                        setSelectedDescription(row.descripcion);
+                        setIsDescriptionModalOpen(true);
+                    }}
+                    size="xs"
+                    variant='light'
+                    color='cyan'
+                >
+                    Ver Descripción
+                </Button>
+            </Table.Td>
             <Table.Td>{row.github}</Table.Td>
             <Table.Td>{row.linkedin}</Table.Td>
             <Table.Td>{row.email}</Table.Td>
@@ -146,7 +148,7 @@ export function AdmGeneral() {
         </>
     );
 
-    const headers = ['ID', 'Titulo', 'Subtitulo', 'Descripción', 'Imagen', 'Github', 'Linkedin', 'Email', 'CV'];
+    const headers = ['ID', 'Imagen', 'Titulo', 'Subtitulo', 'Descripción', 'Github', 'Linkedin', 'Email', 'CV'];
 
     return (
         <Container size="lg">
