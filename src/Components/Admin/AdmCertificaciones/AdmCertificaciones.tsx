@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { TextInput, SimpleGrid, Group, Title, Button, Container, Text, Modal, Table, Textarea } from '@mantine/core';
+import { TextInput, SimpleGrid, Group, Title, Button, Container, Text, Modal, Table, Textarea, Anchor } from '@mantine/core';
 import { useForm } from '@mantine/form';
 import { Tabla } from '../Tabla/Tabla';
 import { useApi } from '../../useApi';
@@ -90,7 +90,11 @@ export function AdmCertificaciones() {
             </Table.Td>
             <Table.Td>{row.anio}</Table.Td>
             <Table.Td>{row.categoria}</Table.Td>
-            <Table.Td>{row.certificado}</Table.Td>
+            <Table.Td>
+                <Anchor href={row.certificado} target="_blank" underline="hover">
+                    Ver Certificado
+                </Anchor>
+            </Table.Td>
         </>
     );
 
