@@ -84,8 +84,10 @@ export function AdmCertificaciones() {
                         setIsDescriptionModalOpen(true);
                     }}
                     size="xs"
+                    variant='light'
+                    color='cyan'
                 >
-                    Ver descripción
+                    Ver Descripción
                 </Button>
             </Table.Td>
             <Table.Td>{row.anio}</Table.Td>
