@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { TextInput, SimpleGrid, Group, Title, Button, Container, Text, Modal, Table } from '@mantine/core';
+import { TextInput, SimpleGrid, Group, Title, Button, Container, Text, Modal, Table, Textarea } from '@mantine/core';
 import { useForm } from '@mantine/form';
 import { Tabla } from '../Tabla/Tabla';
 import { useApi } from '../../useApi';
@@ -134,9 +134,10 @@ export function AdmCertificaciones() {
                         />
                     </SimpleGrid>
 
-                    <TextInput
+                    <Textarea
                         label="Descripcion"
                         mt="md"
+                        resize="vertical"
                         {...form.getInputProps('descripcion')}
                         c="cyan"
                     />
