@@ -142,12 +142,12 @@ export function AdmGeneral() {
                 </Button>
             </Table.Td>
             <Table.Td>
-                <Anchor href={row.github} underline='hover'>
+                <Anchor href={row.github} target="_blank" underline='hover'>
                     GitHub
-                </Anchor>s
+                </Anchor>
             </Table.Td>
             <Table.Td>
-                <Anchor href={row.linkedin} underline='hover'>
+                <Anchor href={row.linkedin} target="_blank" underline='hover'>
                     LinkedIn
                 </Anchor>
             </Table.Td>
@@ -155,7 +155,7 @@ export function AdmGeneral() {
                 {row.email}
             </Table.Td>
             <Table.Td>
-                <Anchor href={row.curriculum} underline='hover'>
+                <Anchor href={row.curriculum} target="_blank" underline='hover'>
                     CV
                 </Anchor>
             </Table.Td>
