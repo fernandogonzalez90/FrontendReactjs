@@ -3,7 +3,7 @@ import { Dots } from './Dots';
 import { useFetch } from '../useFetch';
 import classes from './Inicio.module.css';
 import { GeneralType } from '../../Types/apiTypes';
-import { FaGithub, FaLinkedin } from "react-icons/fa";
+import { FaGithub, FaLinkedin, FaFilePdf } from "react-icons/fa";
 
 export function Inicio() {
   const { data } = useFetch<GeneralType[]>('general/')
@@ -30,12 +30,16 @@ export function Inicio() {
         <Title order={3}>{item.titulo}</Title>
 
         <Group justify="center">
-          <ActionIcon variant="transparent" size="xl" color='cyan'>
+          <ActionIcon component="a" variant="transparent" size="xl" color='cyan' href={item.github}>
             <FaGithub />
           </ActionIcon>
 
-          <ActionIcon variant="transparent" size="xl" color='cyan'>
+          <ActionIcon component="a" variant="transparent" size="xl" color='cyan' href={item.linkedin}>
             <FaLinkedin />
+          </ActionIcon>
+
+          <ActionIcon component="a" variant="transparent" size="xl" color='cyan' href={item.curriculum}>
+            <FaFilePdf />
           </ActionIcon>
         </Group>
       </Flex>
