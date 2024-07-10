@@ -5,6 +5,7 @@ import { Tabla } from '../Tabla/Tabla';
 import { useApi } from '../../useApi';
 import { CertificacionesType } from '../../../Types/apiTypes';
 import { IoIosAddCircle } from "react-icons/io";
+import iconMap from '../../IconMap';
 
 
 export function AdmCertificaciones() {
@@ -74,7 +75,9 @@ export function AdmCertificaciones() {
     const renderDataRow = (row: CertificacionesType) => (
         <>
             <Table.Td>{row.id}</Table.Td>
-            <Table.Td>{row.icon}</Table.Td>
+            <Table.Td>
+                iconMap[{row.icon}]
+            </Table.Td>
             <Table.Td>{row.titulo}</Table.Td>
             <Table.Td>{row.institucion}</Table.Td>
             <Table.Td>
