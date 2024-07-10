@@ -42,7 +42,12 @@ const CardComponent: React.FC<CardComponentProps> = ({ datos }) => {
                             </Menu.Target>
                                 <Menu.Dropdown>
                                     <Menu.Item leftSection={<CiCirclePlus color="cyan" style={{ width: rem(14), height: rem(14) }} />}>
-                                        <Anchor href={datos.descripcion} target="_blank" underline="never">
+                                        <Anchor target="_blank" underline="never" onClick={() => {
+                                            if (datos.descripcion) {
+                                                setSelectedDescription(datos.descripcion);
+                                                setIsDescriptionModalOpen(true);
+                                            }
+                                        }}>
                                             <Text c="cyan">Ver Mas</Text>
                                         </Anchor>
                                     </Menu.Item>
