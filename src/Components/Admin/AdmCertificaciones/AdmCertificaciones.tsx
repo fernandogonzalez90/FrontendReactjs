@@ -5,7 +5,6 @@ import { Tabla } from '../Tabla/Tabla';
 import { useApi } from '../../useApi';
 import { CertificacionesType } from '../../../Types/apiTypes';
 import { IoIosAddCircle } from "react-icons/io";
-import iconMap from '../../IconMap';
 
 
 export function AdmCertificaciones() {
