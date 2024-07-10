@@ -4,7 +4,7 @@ import { PiCertificateBold } from "react-icons/pi";
 import { RxDotsVertical } from "react-icons/rx";
 import { FaLinux, FaPython, FaDocker,FaAngular, FaReact, FaGitAlt, FaGithub, FaJenkins, FaAws } from 'react-icons/fa';
 import { JSX } from 'react';
-import { SiKubernetes, SiTerraform, SiGnubash, SiTypescript, SiDjango, SiGitlab, SiGithubactions, SiAnsible, SiGooglecloud } from 'react-icons/si';
+import { SiKubernetes, SiTerraform, SiGnubash, SiTypescript, SiDjango, SiGitlab, SiGithubactions, SiAnsible, SiGooglecloud, SiGunicorn, SiNginx } from 'react-icons/si';
 import { IoLogoJavascript } from "react-icons/io5";
 
 
@@ -34,7 +34,8 @@ const iconMap: { [key: string]: JSX.Element } = {
     SiAnsible: <SiAnsible style={{ width: '70%', height: '70%' }} />,
     FaAws: <FaAws style={{ width: '70%', height: '70%' }} />,
     SiGooglecloud: <SiGooglecloud style={{ width: '70%', height: '70%' }} />,
-
+    SiGunicorn: <SiGunicorn style={{ width: '70%', height: '70%' }} />,
+    SiNginx: <SiNginx style={{ width: '70%', height: '70%' }} />,  
 };
 
 export default iconMap;
