@@ -18,6 +18,7 @@ export function AdmPortafolio() {
     initialValues: {
       titulo: '',
       categoria: '',
+      teconologias: '',
       descripcion: '',
       repositorio: '',
       view_live: '',
@@ -73,6 +74,7 @@ export function AdmPortafolio() {
       <Table.Td>{row.iconos}</Table.Td>
       <Table.Td>{row.titulo}</Table.Td>
       <Table.Td>{row.categoria}</Table.Td>
+      <Table.Td>{row.teconologias}</Table.Td>
       <Table.Td>
         <Button
           onClick={() => {
@@ -102,13 +104,13 @@ export function AdmPortafolio() {
   return (
     <Container size="lg">
       <Group justify="space-between" align="center" mb="md">
-                <Title order={2} c="cyan.3">
-                    Proyectos
-                </Title>
-                <Button onClick={() => setIsModalOpen(true)} variant="outline" color="cyan">
-                    <Text px="xs">Crear</Text> <IoIosAddCircle />
-                </Button>
-            </Group>
+        <Title order={2} c="cyan.3">
+          Proyectos
+        </Title>
+        <Button onClick={() => setIsModalOpen(true)} variant="outline" color="cyan">
+          <Text px="xs">Crear</Text> <IoIosAddCircle />
+        </Button>
+      </Group>
 
       <Tabla<ProyectosType>
         data={data || []}
@@ -141,6 +143,13 @@ export function AdmPortafolio() {
             label="Descripcion"
             mt="md"
             {...form.getInputProps('descripcion')}
+            c="cyan"
+          />
+
+          <TextInput
+            label="Teconologias"
+            mt="md"
+            {...form.getInputProps('tecnologias')}
             c="cyan"
           />
 

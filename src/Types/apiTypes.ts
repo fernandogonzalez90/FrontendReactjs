@@ -65,6 +65,7 @@ export interface ProyectosType {
   id: string;
   titulo: string;
   categoria: string;
+  teconologias: string;
   descripcion: string;
   repositorio: string;
   view_live: string;
