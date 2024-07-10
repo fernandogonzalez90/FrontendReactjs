@@ -14,7 +14,7 @@ const CardComponent: React.FC<CardComponentProps> = ({ datos }) => {
     const iconosArray = datos.iconos ? datos.iconos.split(',') : [];
 
     const openDescriptionModal = (description: string) => {
-        const descriptionItems = description.split('.').filter(item => item.trim() !== '');
+        const descriptionItems = description.split('|').filter(item => item.trim() !== '');
         setSelectedDescription(descriptionItems);
         setIsDescriptionModalOpen(true);
     };
