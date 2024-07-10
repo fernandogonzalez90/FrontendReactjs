@@ -10,8 +10,14 @@ import { useState } from 'react'
 
 const CardComponent: React.FC<CardComponentProps> = ({ datos }) => {
     const [isDescriptionModalOpen, setIsDescriptionModalOpen] = useState(false);
-    const [selectedDescription, setSelectedDescription] = useState('');
+    const [selectedDescription, setSelectedDescription] = useState<string[]>([]);
     const iconosArray = datos.iconos ? datos.iconos.split(',') : [];
+
+    const openDescriptionModal = (description: string) => {
+        const descriptionItems = description.split('.').filter(item => item.trim() !== '');
+        setSelectedDescription(descriptionItems);
+        setIsDescriptionModalOpen(true);
+    };
     return (
         <Card withBorder shadow="sm" radius="md" key={datos.id}>
             <Card.Section withBorder inheritPadding py="xs">
@@ -44,8 +50,7 @@ const CardComponent: React.FC<CardComponentProps> = ({ datos }) => {
                                     <Menu.Item leftSection={<CiCirclePlus color="cyan" style={{ width: rem(14), height: rem(14) }} />}>
                                         <Anchor target="_blank" underline="never" onClick={() => {
                                             if (datos.descripcion) {
-                                                setSelectedDescription(datos.descripcion);
-                                                setIsDescriptionModalOpen(true);
+                                                openDescriptionModal(datos.descripcion);
                                             }
                                         }}>
                                             <Text c="cyan">Ver Mas</Text>
@@ -88,8 +93,7 @@ const CardComponent: React.FC<CardComponentProps> = ({ datos }) => {
                 {datos.anio &&
                     <Button fullWidth variant='light' onClick={() => {
                         if (datos.descripcion) {
-                            setSelectedDescription(datos.descripcion);
-                            setIsDescriptionModalOpen(true);
+                            openDescriptionModal(datos.descripcion);
                         }
                     }}> Temas Aprendidos</Button>
                 }
@@ -109,7 +113,11 @@ const CardComponent: React.FC<CardComponentProps> = ({ datos }) => {
                 onClose={() => setIsDescriptionModalOpen(false)}
                 title="Descripción"
             >
-                <Text>{selectedDescription}</Text>
+                <ul>
+                    {selectedDescription.map((item, index) => (
+                        <li key={index}>{item.trim()}</li>
+                    ))}
+                </ul>
             </Modal>
         </Card>
     )
