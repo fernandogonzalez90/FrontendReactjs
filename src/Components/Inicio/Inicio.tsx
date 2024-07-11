@@ -31,15 +31,15 @@ export function Inicio() {
         <Text ta='center' c='gray' size='xs'>{item.descripcion}</Text>
 
         <Group justify="center">
-          <ActionIcon component="a" variant="transparent" size="xl" color='cyan' href={item.github}>
+          <ActionIcon component="a" variant="transparent" size="xl" color='cyan' href={item.github} target='_blank'>
             <FaGithub />
           </ActionIcon>
 
-          <ActionIcon component="a" variant="transparent" size="xl" color='cyan' href={item.linkedin}>
+          <ActionIcon component="a" variant="transparent" size="xl" color='cyan' href={item.linkedin} target='_blank'>
             <FaLinkedin />
           </ActionIcon>
 
-          <ActionIcon component="a" variant="transparent" size="xl" color='cyan' href={item.curriculum}>
+          <ActionIcon component="a" variant="transparent" size="xl" color='cyan' href={item.curriculum} target='_blank'>
             <FaFilePdf />
           </ActionIcon>
         </Group>
