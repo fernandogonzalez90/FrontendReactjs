@@ -26,8 +26,8 @@ export function Inicio() {
           radius={120}
           mx="auto"
         />
-        <Title order={3}>{item.titulo}</Title>
-        <Title order={1} c="cyan">{item.subtitulo}</Title>
+        <Title order={1}>{item.titulo}</Title>
+        <Title order={3} c="cyan">{item.subtitulo}</Title>
         <Text ta='center' c='gray'>{item.descripcion}</Text>
 
         <Group justify="center">
