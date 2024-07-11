@@ -1,4 +1,4 @@
-import { Title, Container, Group, Avatar, ActionIcon, Flex } from '@mantine/core';
+import { Title, Container, Group, Avatar, ActionIcon, Flex, Text } from '@mantine/core';
 import { Dots } from './Dots';
 import { useFetch } from '../useFetch';
 import classes from './Inicio.module.css';
@@ -26,8 +26,9 @@ export function Inicio() {
           radius={120}
           mx="auto"
         />
-        <Title order={1} c="cyan">{item.subtitulo}</Title>
         <Title order={3}>{item.titulo}</Title>
+        <Title order={1} c="cyan">{item.subtitulo}</Title>
+        <Text ta='center' c='gray'>{item.descripcion}</Text>
 
         <Group justify="center">
           <ActionIcon component="a" variant="transparent" size="xl" color='cyan' href={item.github}>
