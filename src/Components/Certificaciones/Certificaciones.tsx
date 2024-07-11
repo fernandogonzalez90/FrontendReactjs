@@ -29,7 +29,9 @@ export function Certificaciones() {
       </Title>
 
       <Text mt="sm" size="sm" ta="center" c="dimmed">
-        He obtenido diversas certificaciones, principalmente a través del instituto <b>Educación IT</b>. Estas abarcan áreas clave como desarrollo en Python y JavaScript, así como sistemas GNU/Linux y prácticas DevOps. Estas acreditaciones validan mi experiencia y conocimientos en tecnologías fundamentales para el desarrollo de software moderno y la administración de sistemas.
+        He obtenido diversas certificaciones, principalmente a través del instituto <b>Educación IT</b>.
+        Estas abarcan áreas clave como desarrollo en Python y JavaScript, así como sistemas GNU/Linux y prácticas DevOps.
+        Estas acreditaciones validan mi experiencia y conocimientos en tecnologías fundamentales para el desarrollo de software moderno y la administración de sistemas.
       </Text>
       <SimpleGrid cols={{ base: 1, md: 3 }} spacing="xl" mt={50}>
         {data?.map((certificacion: CardType) => (
