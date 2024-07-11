@@ -23,14 +23,13 @@ export function Certificaciones() {
 
   return (
     <Container size="lg" py="xl" id='certificaciones'>
-      <Divider my="lg" color="cyan.3"/>
+      <Divider my="lg" color="cyan.3" />
       <Title order={2} c="cyan" className={classes.title} ta="center" mt="sm">
         Certificaciones
       </Title>
-      
+
       <Text mt="sm" size="lg" ta="center" c="dimmed">
-        Cuento con distintas certificaciones, la mayoria en el instituto <span style={{fontWeight: 'bold'}}>Educacion IT </span>
-        tanto en desarrollo con Python, JavaScript, como en Systemas GNU/Linux y DevOps.
+        He obtenido diversas certificaciones, principalmente a través del instituto <b>Educación IT</b>. Estas abarcan áreas clave como desarrollo en Python y JavaScript, así como sistemas GNU/Linux y prácticas DevOps. Estas acreditaciones validan mi experiencia y conocimientos en tecnologías fundamentales para el desarrollo de software moderno y la administración de sistemas.
       </Text>
       <SimpleGrid cols={{ base: 1, md: 3 }} spacing="xl" mt={50}>
         {data?.map((certificacion: CardType) => (
