@@ -1,4 +1,4 @@
-import { useState, useEffect, Key } from 'react';
+import { useState, useEffect} from 'react';
 import { TextInput, SimpleGrid, Group, Title, Button, Container, Text, Modal, Table, Anchor, Textarea, ThemeIcon } from '@mantine/core';
 import { useForm } from '@mantine/form';
 import { Tabla } from '../Tabla/Tabla';
