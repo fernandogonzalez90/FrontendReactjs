@@ -1,10 +1,11 @@
 import { useState, useEffect } from 'react';
-import { TextInput, SimpleGrid, Group, Title, Button, Container, Text, Modal, Table, Textarea, Anchor } from '@mantine/core';
+import { TextInput, SimpleGrid, Group, Title, Button, Container, Text, Modal, Table, Textarea, Anchor, ThemeIcon } from '@mantine/core';
 import { useForm } from '@mantine/form';
 import { Tabla } from '../Tabla/Tabla';
 import { useApi } from '../../useApi';
 import { CertificacionesType } from '../../../Types/apiTypes';
 import { IoIosAddCircle } from "react-icons/io";
+import iconMap from '../../IconMap';
 
 
 export function AdmCertificaciones() {
@@ -75,7 +76,9 @@ export function AdmCertificaciones() {
         <>
             <Table.Td>{row.id}</Table.Td>
             <Table.Td>
-                iconMap[{row.icon}]
+                <ThemeIcon variant="light">
+                    {iconMap[row.icon]}
+                </ThemeIcon>
             </Table.Td>
             <Table.Td>{row.titulo}</Table.Td>
             <Table.Td>{row.institucion}</Table.Td>
