@@ -70,23 +70,19 @@ export function AdmPortafolio() {
     }
   };
 
-  const listIcons = (row: any) => {
-    const iconosArray = row.iconos ? row.iconos.split(',') : []
-    return <Group align='center'>
-    {iconosArray.map((icon: string, index: Key | null | undefined) => (
-        <ThemeIcon key={index} variant="transparent" color="cyan">
-            {iconMap[icon.trim()]}
-        </ThemeIcon>
-    ))}
-</Group>
-  }
-
   const renderDataRow = (row: ProyectosType) => (
-    
     <>
       <Table.Td>{row.id}</Table.Td>
-      <Table.Td>{listIcons(row.iconos)
-        }</Table.Td>
+      <Table.Td>
+        {row.iconos.split(',').map((iconName, index) => {
+          const IconComponent = iconMap[iconName.trim()];
+          return IconComponent ? (
+            <ThemeIcon key={index} size="sm" variant="light" mr={5}>
+              {IconComponent}
+            </ThemeIcon>
+          ) : null;
+        })}
+      </Table.Td>
       <Table.Td>{row.titulo}</Table.Td>
       <Table.Td>{row.categoria}</Table.Td>
       <Table.Td>{row.teconologias}</Table.Td>
@@ -133,6 +129,7 @@ export function AdmPortafolio() {
         headers={headers}
         onEdit={handleEdit}
         onDelete={handleDelete}
+
       />
 
       <Modal opened={isModalOpen} onClose={() => {

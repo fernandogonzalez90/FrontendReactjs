@@ -76,7 +76,7 @@ export function AdmCertificaciones() {
         <>
             <Table.Td>{row.id}</Table.Td>
             <Table.Td>
-                <ThemeIcon variant="light">
+                <ThemeIcon variant="light" c='cyan'>
                     {iconMap[row.icon]}
                 </ThemeIcon>
             </Table.Td>

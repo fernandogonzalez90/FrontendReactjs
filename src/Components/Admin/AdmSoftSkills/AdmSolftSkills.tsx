@@ -62,7 +62,7 @@ export function AdmSoftSkills() {
     <>
       <Table.Td>{row.id}</Table.Td>
       <Table.Td>{row.titulo}</Table.Td>
-      <Table.Td>{row.color}</Table.Td>
+      <Table.Td><Text c={row.color} fw={700}>{row.color}</Text></Table.Td>
     </>
   );
 

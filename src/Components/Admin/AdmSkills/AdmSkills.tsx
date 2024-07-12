@@ -1,10 +1,11 @@
 import { useState, useEffect } from 'react';
-import { TextInput, SimpleGrid, Group, Title, Button, Container, Text, Modal, Table } from '@mantine/core';
+import { TextInput, SimpleGrid, Group, Title, Button, Container, Text, Modal, Table, ThemeIcon } from '@mantine/core';
 import { useForm } from '@mantine/form';
 import { Tabla } from '../Tabla/Tabla';
 import { useApi } from '../../useApi';
 import { SkillsType } from '../../../Types/apiTypes';
 import { IoIosAddCircle } from 'react-icons/io';
+import iconMap from '../../IconMap';
 
 export function AdmSkills() {
   const [editingItem, setEditingItem] = useState<SkillsType | null>(null);
@@ -67,8 +68,12 @@ export function AdmSkills() {
       <Table.Td>{row.id}</Table.Td>
       <Table.Td>{row.titulo}</Table.Td>
       <Table.Td>{row.categoria}</Table.Td>
-      <Table.Td>{row.icon}</Table.Td>
-      <Table.Td>{row.color}</Table.Td>
+      <Table.Td>
+        <ThemeIcon variant="light" c='cyan'>
+          {iconMap[row.icon]}
+        </ThemeIcon>
+      </Table.Td>
+      <Table.Td><Text c={row.color} fw={700}>{row.color}</Text></Table.Td>
     </>
   );
 
