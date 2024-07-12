@@ -1,10 +1,11 @@
-import { useState, useEffect } from 'react';
-import { TextInput, SimpleGrid, Group, Title, Button, Container, Text, Modal, Table, Anchor, Textarea } from '@mantine/core';
+import { useState, useEffect, Key } from 'react';
+import { TextInput, SimpleGrid, Group, Title, Button, Container, Text, Modal, Table, Anchor, Textarea, ThemeIcon } from '@mantine/core';
 import { useForm } from '@mantine/form';
 import { Tabla } from '../Tabla/Tabla';
 import { useApi } from '../../useApi';
 import { ProyectosType } from '../../../Types/apiTypes';
 import { IoIosAddCircle } from 'react-icons/io';
+import iconMap from '../../IconMap';
 
 export function AdmPortafolio() {
   const [editingItem, setEditingItem] = useState<ProyectosType | null>(null);
@@ -13,6 +14,7 @@ export function AdmPortafolio() {
   const [selectedDescription, setSelectedDescription] = useState('');
 
   const { fetch, post, put, del, data, response, error, loading, setData } = useApi<ProyectosType[]>();
+
 
   const form = useForm({
     initialValues: {
@@ -68,10 +70,23 @@ export function AdmPortafolio() {
     }
   };
 
+  const listIcons = (row: any) => {
+    const iconosArray = row.iconos ? row.iconos.split(',') : []
+    return <Group align='center'>
+    {iconosArray.map((icon: string, index: Key | null | undefined) => (
+        <ThemeIcon key={index} variant="transparent" color="cyan">
+            {iconMap[icon.trim()]}
+        </ThemeIcon>
+    ))}
+</Group>
+  }
+
   const renderDataRow = (row: ProyectosType) => (
+    
     <>
       <Table.Td>{row.id}</Table.Td>
-      <Table.Td>{row.iconos}</Table.Td>
+      <Table.Td>{listIcons(row.iconos)
+        }</Table.Td>
       <Table.Td>{row.titulo}</Table.Td>
       <Table.Td>{row.categoria}</Table.Td>
       <Table.Td>{row.teconologias}</Table.Td>
