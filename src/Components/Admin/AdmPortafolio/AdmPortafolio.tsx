@@ -110,7 +110,7 @@ export function AdmPortafolio() {
     </>
   );
 
-  const headers = ['ID', 'Iconos', 'Titulo', 'Categoria', 'Descripción', 'Repositorio', 'Ver live'];
+  const headers = ['ID', 'Iconos', 'Titulo', 'Categoria','Tecnologias', 'Descripción', 'Repositorio', 'Ver live'];
 
   return (
     <Container size="lg">

@@ -16,7 +16,7 @@ const App: React.FC = () => {
           <Route path='/' element={<PublicComponent></PublicComponent>} />
           <Route path="/login" element={<Login />} />
           <Route
-            path="/admin"
+            path="https://backendjango.ddns.net/admin/"
             element={
               <ProtectedRoute>
                 <Admin />
