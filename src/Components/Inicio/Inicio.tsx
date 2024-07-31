@@ -10,7 +10,7 @@ export function Inicio() {
 
   const items = data?.map((item: GeneralType) => {
     console.log(item.imagen)
-    const imageUrl = item.imagen ? (typeof item.imagen === 'string' ? item.imagen : URL.createObjectURL(item.imagen)) : undefined;
+    const imageUrl = item.imagen ? (typeof item.imagen === 'string' ? item.imagen : URL.createObjectURL(item.imagen).replace('http:', 'https:')) : undefined;
 
     return (
       <Flex
