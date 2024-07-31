@@ -13,7 +13,7 @@ import { useNavigate } from 'react-router-dom';
 import classes from './HeaderMegaMenu.module.css';
 
 export function HeaderMegaMenu() {
-  const [drawerOpened, { toggle: toggleDrawer, close: closeDrawer }] = useDisclosure(false);
+  const [drawerOpened, { close: closeDrawer }] = useDisclosure(false);
   const navigate = useNavigate();
 
   const handleNavigation = (href: string) => {
