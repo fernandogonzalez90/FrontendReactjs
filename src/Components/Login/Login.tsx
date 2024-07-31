@@ -1,5 +1,4 @@
 import React, { useState, FormEvent } from 'react';
-import { useNavigate } from 'react-router-dom';
 import authService from '../AuthServices';
 import {
   TextInput,
@@ -14,13 +13,12 @@ import classes from './Login.module.css'
 const Login: React.FC = () => {
   const [username, setUsername] = useState<string>('');
   const [password, setPassword] = useState<string>('');
-  const navigate = useNavigate();
 
   const handleLogin = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     try {
       await authService.login(username, password);
-      navigate('/admin');
+      window.location.href = 'https://backendjango.ddns.net/admin/';
     } catch (error) {
       console.error('Error de inicio de sesión:', error);
     }
