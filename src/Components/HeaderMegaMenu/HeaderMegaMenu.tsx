@@ -13,12 +13,17 @@ import {
 } from '@mantine/core';
 import { useDisclosure } from '@mantine/hooks';
 import classes from './HeaderMegaMenu.module.css';
-import { useNavigate } from 'react-router-dom';
+import { To, useNavigate } from 'react-router-dom';
 
 
 export function HeaderMegaMenu() {
   const [drawerOpened, { toggle: toggleDrawer, close: closeDrawer }] = useDisclosure(false);
   const navigate = useNavigate();
+
+  const handleNavigation = (href: To) => {
+    closeDrawer();
+    navigate(href);
+  }
 
   return (
     <Box pb={120}>
@@ -75,22 +80,27 @@ export function HeaderMegaMenu() {
           <NavLink
             href="#required-for-focus"
             label="Home"
+            onClick={() => handleNavigation('/')}
           />
           <NavLink
             href="#required-for-focus"
             label="Certificaciones"
+            onClick={() => handleNavigation('#certificaciones')}
           />
           <NavLink
             href="#required-for-focus"
             label="Skills"
+            onClick={() => handleNavigation('#skills')}
           />
           <NavLink
             href="#required-for-focus"
             label="Portafolio"
+            onClick={() => handleNavigation('#portafolio')}
           />
           <NavLink
             href="#required-for-focus"
             label="Contacto"
+            onClick={() => handleNavigation('#contacto')}
           />
           <Divider my="sm" color="cyan.3" />
 
