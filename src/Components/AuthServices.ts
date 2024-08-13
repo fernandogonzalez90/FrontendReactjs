@@ -1,7 +1,7 @@
 // authServices.tsx
 import axios, { AxiosInstance } from "axios";
 
-const API_URL = "https://dev.gonzalezf.com.ar/api/";
+const API_URL = "https://devgonzalezf.com.ar/api/";
 
 interface User {
   username: string;
