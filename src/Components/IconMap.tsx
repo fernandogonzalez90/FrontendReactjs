@@ -2,9 +2,9 @@
 import { IoIosInfinite, IoLogoIonic } from 'react-icons/io';
 import { PiCertificateBold } from "react-icons/pi";
 import { RxDotsVertical } from "react-icons/rx";
-import { FaLinux, FaPython, FaDocker,FaAngular, FaReact, FaGitAlt, FaGithub, FaJenkins, FaAws } from 'react-icons/fa';
+import { FaLinux, FaPython, FaDocker, FaAngular, FaReact, FaGitAlt, FaGithub, FaJenkins, FaAws } from 'react-icons/fa';
 import { JSX } from 'react';
-import { SiKubernetes, SiTerraform, SiGnubash, SiTypescript, SiDjango, SiGitlab, SiGithubactions, SiAnsible, SiGooglecloud, SiGunicorn, SiNginx } from 'react-icons/si';
+import { SiKubernetes, SiTerraform, SiGnubash, SiTypescript, SiDjango, SiGitlab, SiGithubactions, SiAnsible, SiGooglecloud, SiGunicorn, SiNginx, SiSelenium, SiGooglecolab } from 'react-icons/si';
 import { IoLogoJavascript } from "react-icons/io5";
 
 
@@ -35,7 +35,10 @@ const iconMap: { [key: string]: JSX.Element } = {
     FaAws: <FaAws style={{ width: '70%', height: '70%' }} />,
     SiGooglecloud: <SiGooglecloud style={{ width: '70%', height: '70%' }} />,
     SiGunicorn: <SiGunicorn style={{ width: '70%', height: '70%' }} />,
-    SiNginx: <SiNginx style={{ width: '70%', height: '70%' }} />,  
+    SiNginx: <SiNginx style={{ width: '70%', height: '70%' }} />,
+    SiSelenium: <SiSelenium style={{ width: '70%', height: '70%' }} />,
+    SiGooglecolab: <SiGooglecolab style={{ width: '70%', height: '70%' }} />,
+
 };
 
 export default iconMap;
