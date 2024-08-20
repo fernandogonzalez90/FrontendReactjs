@@ -6,7 +6,7 @@ import {
     Divider,
     Loader,
     Flex,
-    ActionIcon,
+    ThemeIcon,
 } from '@mantine/core';
 import { useFetch } from '../useFetch';
 import classes from './Skills.module.css';
@@ -24,9 +24,9 @@ export function Skills() {
 
     const items = skillsData.map((item: SkillsType) => (
         <div key={item.titulo} className={classes.item}>
-            <ActionIcon variant="transparent" aria-label="Settings" color={item.color} size="xl">
+            <ThemeIcon variant="light" radius="md" size="xl">
                 {iconMap[item.icon]}
-            </ActionIcon>
+            </ThemeIcon>
             <Text size="xs" ta="center" c={item.color}>
                 {item.titulo}
             </Text>
