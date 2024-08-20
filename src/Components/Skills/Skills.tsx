@@ -23,7 +23,7 @@ export function Skills() {
     }
 
     const items = skillsData.map((item: SkillsType) => (
-        <div key={item.titulo} className={classes.item}>
+        <div key={item.titulo}>
             <ThemeIcon variant="light" radius="md" size="xl" color={item.color}>
                 {iconMap[item.icon]}
             </ThemeIcon>
