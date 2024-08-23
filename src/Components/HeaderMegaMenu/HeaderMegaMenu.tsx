@@ -29,7 +29,7 @@ export function HeaderMegaMenu() {
   };
 
   return (
-    <Box pb={120} bg='dark'>
+    <Box pb={120}>
       <header className={classes.header}>
         <Group justify="space-between" h="100%">
           <Text ta="center" fw={700} c="cyan.5">Fernando Gonzalez</Text>

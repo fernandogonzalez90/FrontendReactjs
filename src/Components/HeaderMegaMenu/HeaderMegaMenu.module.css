@@ -4,6 +4,10 @@
   z-index: 1000;
   height: rem(60px);
   width: 100%;
+  background-color: light-dark(
+    var(--mantine-color-gray-5),
+    var(--mantine-color-dark-5)
+  );
   padding-left: var(--mantine-spacing-md);
   padding-right: var(--mantine-spacing-md);
   border-bottom: rem(1px) solid
