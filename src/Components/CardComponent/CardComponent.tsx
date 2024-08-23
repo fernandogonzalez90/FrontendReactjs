@@ -109,6 +109,7 @@ const CardComponent: React.FC<CardComponentProps> = ({ datos }) => {
                 </Center>
             </Card.Section>
             <Modal
+                centered
                 opened={isDescriptionModalOpen}
                 onClose={() => setIsDescriptionModalOpen(false)}
                 title="Descripción"

@@ -126,7 +126,7 @@ export function AdmCertificaciones() {
                 onDelete={handleDelete}
             />
 
-            <Modal opened={isModalOpen} onClose={() => {
+            <Modal centered opened={isModalOpen} onClose={() => {
                 setIsModalOpen(false);
                 setEditingItem(null);
                 form.reset();
@@ -191,6 +191,7 @@ export function AdmCertificaciones() {
                 {error && <Text c="red.4" ta="center" py="xs">Error: {error}</Text>}
             </Modal>
             <Modal
+                centered
                 opened={isDescriptionModalOpen}
                 onClose={() => setIsDescriptionModalOpen(false)}
                 title="Descripción"
