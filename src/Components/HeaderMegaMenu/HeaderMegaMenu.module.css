@@ -3,7 +3,7 @@
   top: 0;
   z-index: 1000;
   height: rem(60px);
-  height: 100%;
+  width: 100%;
   padding-left: var(--mantine-spacing-md);
   padding-right: var(--mantine-spacing-md);
   border-bottom: rem(1px) solid
