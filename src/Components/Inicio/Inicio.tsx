@@ -28,7 +28,7 @@ export function Inicio() {
         />
         <Title order={1}>{item.titulo}</Title>
         <Title order={3} c="cyan">{item.subtitulo}</Title>
-        <Text ta='center' c='gray' size='xs'>{item.descripcion}</Text>
+        <Text ta='center' c='gray' size='lg'>{item.descripcion}</Text>
 
         <Group justify="center">
           <ActionIcon component="a" variant="transparent" size="xl" color='cyan' href={item.github} target='_blank'>

@@ -12,7 +12,7 @@ export function Portafolio() {
             <Title order={2} ta="center" c="cyan" mt="sm" pt="lg">
                 Portafolio
             </Title>
-            <Text mt="sm" size="md" ta="center" c="dimmed">
+            <Text mt="sm" size="lg" ta="center" c="dimmed">
                 Todos los proyectos estan alojados en GitHub y los Frontend se pueden visualizar en vivo.
             </Text>
             <SimpleGrid cols={{ base: 1, md: 3 }} spacing="xl" mt={50}>
