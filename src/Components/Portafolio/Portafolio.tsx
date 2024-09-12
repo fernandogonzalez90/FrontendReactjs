@@ -13,7 +13,7 @@ export function Portafolio() {
                 Portafolio
             </Title>
             <Text mt="sm" size="lg" ta="center" c="dimmed">
-                Todos los proyectos estan alojados en GitHub y los Frontend se pueden visualizar en vivo.
+                En esta seccion hay tanto proyectos personales como trabajos realizados como Freelancer.
             </Text>
             <SimpleGrid cols={{ base: 1, md: 3 }} spacing="xl" mt={50}>
                 {data?.map((certificacion: CardType) => (

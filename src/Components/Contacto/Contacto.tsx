@@ -25,14 +25,16 @@ export function Contacto() {
     const { post, response, error, loading } = useApi();
 
     const handleSubmit = async (values: typeof form.values) => {
-        console.log('Submitting form with values:', values);
-        await post('contacto/', values);
-        console.log('Response:', response);
+        const result = await post('contacto/', values);
+
+        if (result) {
+            form.reset();
+        }
     };
 
     return (
         <Container size="lg" py="xl" id='contacto'>
-            <Divider my="md" color="cyan.3"/>
+            <Divider my="md" color="cyan.3" />
             <Container size="xs">
                 <form onSubmit={form.onSubmit(handleSubmit)}>
                     <Title order={2} ta="center" c="cyan" mt="sm" pt="lg">
@@ -87,7 +89,7 @@ export function Contacto() {
                 </form>
                 {response && <Text c="teal.4" ta="center" py="xs">Mensaje enviado correctamente.</Text>}
                 {error &&
-                <Text c="red.4" ta="center" py="xs">Error al enviar el mensaje: {error}</Text>}
+                    <Text c="red.4" ta="center" py="xs">Error al enviar el mensaje: {error}</Text>}
             </Container>
         </Container>
     );

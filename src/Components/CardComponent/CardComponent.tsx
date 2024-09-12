@@ -73,7 +73,7 @@ const CardComponent: React.FC<CardComponentProps> = ({ datos }) => {
             </Card.Section>
             {/* Datos Proyectos */}
             {datos.repositorio &&
-                <Text mt="sm" c="dimmed" size="sm" ta="center">
+                <Text mt="sm" c="dimmed" size="sm" ta="center" px={4}>
                     <Text fw={700} span inherit c="cyan">
                         Categoria:
                     </Text>{' '}
