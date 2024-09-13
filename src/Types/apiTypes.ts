@@ -1,5 +1,6 @@
 export interface CardType {
   id?: number;
+  tipo?: string;
   titulo?: string;
   subtitulo?: string;
   institucion?: string;
@@ -57,7 +58,7 @@ export interface SoftSkillsType {
   color: string;
 }
 
-export interface BadgeComponentProp{
+export interface BadgeComponentProp {
   datos: SoftSkillsType;
 }
 
@@ -72,7 +73,7 @@ export interface ProyectosType {
   iconos: string;
 }
 
-export interface ContactoType{
+export interface ContactoType {
   id: string;
   nombre: string;
   apellido: string;

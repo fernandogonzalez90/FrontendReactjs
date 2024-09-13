@@ -57,28 +57,44 @@ const CardComponent: React.FC<CardComponentProps> = ({ datos }) => {
                                         </Anchor>
                                     </Menu.Item>
                                     <Menu.Item leftSection={<FaEye color="cyan" style={{ width: rem(14), height: rem(14) }} />}>
-                                        {datos.repositorio.length > 2 &&
+                                        {datos.view_live &&
                                             <Anchor href={datos.view_live} target="_blank" underline="never">
                                                 <Text c="cyan">Ver Online</Text>
                                             </Anchor>}
                                     </Menu.Item>
                                     <Menu.Item leftSection={<FaGithub color="cyan" style={{ width: rem(14), height: rem(14) }} />}>
-                                        <Anchor href={datos.repositorio} target="_blank" underline="never">
-                                            <Text c="cyan">Repositorio</Text>
-                                        </Anchor>
+                                        {
+                                            datos.repositorio &&
+                                            <Anchor href={datos.repositorio} target="_blank" underline="never">
+                                                <Text c="cyan">Repositorio</Text>
+                                            </Anchor>
+                                        }
+
                                     </Menu.Item>
                                 </Menu.Dropdown></>}
                     </Menu>
                 </Group>
             </Card.Section>
             {/* Datos Proyectos */}
-            {datos.repositorio &&
+            {/* Caterogia del proyecto */}
+            {datos.categoria &&
                 <Text mt="sm" c="dimmed" size="sm" ta="center" px={4}>
                     <Text fw={700} span inherit c="cyan">
                         Categoria:
                     </Text>{' '}
                     {datos.categoria}
+                    <br />
                 </Text>}
+            {/* Tipo del proyecto "Freelancer" */}
+            {datos.tipo &&
+                <Text mt="sm" c="dimmed" size="sm" ta="center" px={4}>
+                    <Text fw={700} span inherit c="cyan">
+                        Tipo:
+                    </Text>{' '}
+                    {datos.tipo}
+                    <br />
+                </Text>}
+
 
             {/* Datos Certificados */}
             {datos.certificado &&
@@ -87,6 +103,7 @@ const CardComponent: React.FC<CardComponentProps> = ({ datos }) => {
                         Institucion:
                     </Text>{' '}
                     {datos.institucion} | {datos.anio}
+                    <br />
                 </Text>}
             <br />
             <Card.Section withBorder inheritPadding py="xs" >
@@ -109,10 +126,10 @@ const CardComponent: React.FC<CardComponentProps> = ({ datos }) => {
                 </Center>
             </Card.Section>
             <Modal
+                size={"lg"}
                 centered
                 opened={isDescriptionModalOpen}
                 onClose={() => setIsDescriptionModalOpen(false)}
-                title="Descripción"
             >
                 <ul>
                     {selectedDescription.map((item, index) => (
