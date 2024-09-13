@@ -40,7 +40,7 @@ const CardComponent: React.FC<CardComponentProps> = ({ datos }) => {
                                 </ActionIcon>
                             </Anchor>}
 
-                        {datos.repositorio &&
+                        {datos.proyecto &&
                             <><Menu.Target>
                                 <ActionIcon variant="transparent">
                                     <HiOutlineDotsVertical color="cyan" style={{ width: rem(16), height: rem(16) }} />
