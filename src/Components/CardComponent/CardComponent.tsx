@@ -1,4 +1,4 @@
-import { ActionIcon, Anchor, Button, Card, Center, Group, Menu, Modal, Text, ThemeIcon, rem } from '@mantine/core'
+import { ActionIcon, Anchor, Button, Card, Center, Dialog, Group, Menu, Text, ThemeIcon, rem } from '@mantine/core'
 import { CardComponentProps } from '../../Types/apiTypes'
 import iconMap from '../IconMap'
 import { PiCertificate } from 'react-icons/pi'
@@ -9,15 +9,16 @@ import { FaEye, FaGithub } from 'react-icons/fa'
 import { useState } from 'react'
 
 const CardComponent: React.FC<CardComponentProps> = ({ datos }) => {
-    const [isDescriptionModalOpen, setIsDescriptionModalOpen] = useState(false);
+    const [isDescriptionDialogOpen, setIsDescriptionDialogOpen] = useState(false);
     const [selectedDescription, setSelectedDescription] = useState<string[]>([]);
     const iconosArray = datos.iconos ? datos.iconos.split(',') : [];
 
-    const openDescriptionModal = (description: string) => {
+    const openDescriptionDialog = (description: string) => {
         const descriptionItems = description.split('|').filter(item => item.trim() !== '');
         setSelectedDescription(descriptionItems);
-        setIsDescriptionModalOpen(true);
+        setIsDescriptionDialogOpen(true);
     };
+
     return (
         <Card withBorder shadow="sm" radius="md" key={datos.id}>
             <Card.Section withBorder inheritPadding py="xs">
@@ -41,17 +42,18 @@ const CardComponent: React.FC<CardComponentProps> = ({ datos }) => {
                             </Anchor>}
 
                         {datos.tipo &&
-                            <><Menu.Target>
-                                <ActionIcon variant="transparent">
-                                    <HiOutlineDotsVertical color="cyan" style={{ width: rem(16), height: rem(16) }} />
-                                </ActionIcon>
-                            </Menu.Target>
+                            <>
+                                <Menu.Target>
+                                    <ActionIcon variant="transparent">
+                                        <HiOutlineDotsVertical color="cyan" style={{ width: rem(16), height: rem(16) }} />
+                                    </ActionIcon>
+                                </Menu.Target>
                                 <Menu.Dropdown>
                                     {datos.descripcion &&
                                         <Menu.Item leftSection={<CiCirclePlus color="cyan" style={{ width: rem(14), height: rem(14) }} />}>
                                             <Anchor target="_blank" underline="never" onClick={() => {
                                                 if (datos.descripcion) {
-                                                    openDescriptionModal(datos.descripcion);
+                                                    openDescriptionDialog(datos.descripcion);
                                                 }
                                             }}>
                                                 <Text c="cyan">Ver Mas</Text>
@@ -74,14 +76,13 @@ const CardComponent: React.FC<CardComponentProps> = ({ datos }) => {
                                             </Anchor>
                                         </Menu.Item>
                                     }
-                                </Menu.Dropdown></>}
+                                </Menu.Dropdown>
+                            </>}
                     </Menu>
                 </Group>
-
             </Card.Section>
-            {/* Datos Proyectos */}
 
-            {/* Caterogia del proyecto */}
+            {/* Datos Proyectos */}
             {datos.categoria &&
                 <Text mt="sm" c="dimmed" size="sm" ta="center">
                     <Text fw={700} span inherit c="cyan">
@@ -90,7 +91,7 @@ const CardComponent: React.FC<CardComponentProps> = ({ datos }) => {
                     {datos.categoria}
                     <br />
                 </Text>}
-            {/* Tipo del proyecto "Freelancer" */}
+
             {datos.tipo &&
                 <Text mt="sm" c="dimmed" size="sm" ta="center" py={4}>
                     <Text fw={700} span inherit c="cyan">
@@ -99,8 +100,6 @@ const CardComponent: React.FC<CardComponentProps> = ({ datos }) => {
                     {datos.tipo}
                 </Text>}
 
-
-            {/* Datos Certificados */}
             {datos.certificado &&
                 <Text mt="sm" c="dimmed" size="sm" ta="center" py={4}>
                     <Text fw={700} span inherit c="cyan">
@@ -114,7 +113,7 @@ const CardComponent: React.FC<CardComponentProps> = ({ datos }) => {
                 {datos.anio &&
                     <Button fullWidth variant='light' onClick={() => {
                         if (datos.descripcion) {
-                            openDescriptionModal(datos.descripcion);
+                            openDescriptionDialog(datos.descripcion);
                         }
                     }}> Temas Aprendidos</Button>
                 }
@@ -129,20 +128,21 @@ const CardComponent: React.FC<CardComponentProps> = ({ datos }) => {
                     </Group>
                 </Center>
             </Card.Section>
-            <Modal
-                size={"lg"}
-                centered
-                opened={isDescriptionModalOpen}
-                onClose={() => setIsDescriptionModalOpen(false)}
+            <Dialog
+                size="lg"
+                opened={isDescriptionDialogOpen}
+                onClose={() => setIsDescriptionDialogOpen(false)}
             >
-                <ul>
-                    {selectedDescription.map((item, index) => (
-                        <li key={index}>{item.trim()}</li>
-                    ))}
-                </ul>
-            </Modal>
+                <Center>
+                    <ul>
+                        {selectedDescription.map((item, index) => (
+                            <li key={index}>{item.trim()}</li>
+                        ))}
+                    </ul>
+                </Center>
+            </Dialog>
         </Card>
     )
 }
 
-export default CardComponent
+export default CardComponent;
