@@ -47,38 +47,43 @@ const CardComponent: React.FC<CardComponentProps> = ({ datos }) => {
                                 </ActionIcon>
                             </Menu.Target>
                                 <Menu.Dropdown>
-                                    <Menu.Item leftSection={<CiCirclePlus color="cyan" style={{ width: rem(14), height: rem(14) }} />}>
-                                        <Anchor target="_blank" underline="never" onClick={() => {
-                                            if (datos.descripcion) {
-                                                openDescriptionModal(datos.descripcion);
-                                            }
-                                        }}>
-                                            <Text c="cyan">Ver Mas</Text>
-                                        </Anchor>
-                                    </Menu.Item>
-                                    <Menu.Item leftSection={<FaEye color="cyan" style={{ width: rem(14), height: rem(14) }} />}>
-                                        {datos.view_live &&
+                                    {datos.descripcion &&
+                                        <Menu.Item leftSection={<CiCirclePlus color="cyan" style={{ width: rem(14), height: rem(14) }} />}>
+                                            <Anchor target="_blank" underline="never" onClick={() => {
+                                                if (datos.descripcion) {
+                                                    openDescriptionModal(datos.descripcion);
+                                                }
+                                            }}>
+                                                <Text c="cyan">Ver Mas</Text>
+                                            </Anchor>
+                                        </Menu.Item>
+                                    }
+
+                                    {datos.view_live &&
+                                        <Menu.Item leftSection={<FaEye color="cyan" style={{ width: rem(14), height: rem(14) }} />}>
+
                                             <Anchor href={datos.view_live} target="_blank" underline="never">
                                                 <Text c="cyan">Ver Online</Text>
-                                            </Anchor>}
-                                    </Menu.Item>
-                                    <Menu.Item leftSection={<FaGithub color="cyan" style={{ width: rem(14), height: rem(14) }} />}>
-                                        {
-                                            datos.repositorio &&
+                                            </Anchor>
+                                        </Menu.Item>
+                                    }
+                                    {datos.repositorio &&
+                                        <Menu.Item leftSection={<FaGithub color="cyan" style={{ width: rem(14), height: rem(14) }} />}>
                                             <Anchor href={datos.repositorio} target="_blank" underline="never">
                                                 <Text c="cyan">Repositorio</Text>
                                             </Anchor>
-                                        }
-
-                                    </Menu.Item>
+                                        </Menu.Item>
+                                    }
                                 </Menu.Dropdown></>}
                     </Menu>
                 </Group>
+
             </Card.Section>
             {/* Datos Proyectos */}
+
             {/* Caterogia del proyecto */}
             {datos.categoria &&
-                <Text mt="sm" c="dimmed" size="sm" ta="center" px={4}>
+                <Text mt="sm" c="dimmed" size="sm" ta="center">
                     <Text fw={700} span inherit c="cyan">
                         Categoria:
                     </Text>{' '}
@@ -87,7 +92,7 @@ const CardComponent: React.FC<CardComponentProps> = ({ datos }) => {
                 </Text>}
             {/* Tipo del proyecto "Freelancer" */}
             {datos.tipo &&
-                <Text mt="sm" c="dimmed" size="sm" ta="center" p={4}>
+                <Text mt="sm" c="dimmed" size="sm" ta="center" py={4}>
                     <Text fw={700} span inherit c="cyan">
                         Tipo:
                     </Text>{' '}
@@ -97,7 +102,7 @@ const CardComponent: React.FC<CardComponentProps> = ({ datos }) => {
 
             {/* Datos Certificados */}
             {datos.certificado &&
-                <Text mt="sm" c="dimmed" size="sm" ta="center">
+                <Text mt="sm" c="dimmed" size="sm" ta="center" py={4}>
                     <Text fw={700} span inherit c="cyan">
                         Institucion:
                     </Text>{' '}
