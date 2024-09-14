@@ -1,4 +1,4 @@
-import { ActionIcon, Anchor, Button, Card, Center, Group, Menu, Modal, ModalHeader, Text, ThemeIcon, Title, rem } from '@mantine/core'
+import { ActionIcon, Anchor, Button, Card, Center, Group, Menu, Modal, ModalBaseCloseButton, ModalBody, ModalHeader, Text, ThemeIcon, Title, rem } from '@mantine/core'
 import { CardComponentProps } from '../../Types/apiTypes'
 import iconMap from '../IconMap'
 import { PiCertificate } from 'react-icons/pi'
@@ -135,15 +135,20 @@ const CardComponent: React.FC<CardComponentProps> = ({ datos }) => {
                 opened={isDescriptionModalOpen}
                 onClose={() => setIsDescriptionModalOpen(false)}
             >
-                <ModalHeader ta={"center"} c={"cyan"}>
+                <ModalHeader ta="center" c={"cyan"}>
                     <Title order={3}>{datos.titulo}</Title>
                 </ModalHeader>
-                {selectedDescription &&
-                    selectedDescription.map((item, index) => (
-                        <Text key={index} pb={"lg"}> {item.trim()}</Text>
-                    ))
+                <ModalBody>
+                    {selectedDescription &&
+                        selectedDescription.map((item, index) => (
+                            <Text ta="center" key={index} pb={"lg"}> {item.trim()}</Text>
+                        ))
 
-                }
+                    }
+                </ModalBody>
+                <ModalBaseCloseButton>
+                    cerrar
+                </ModalBaseCloseButton>
                 {datos.view_live && (
                     <Anchor href={datos.view_live} target="_blank" style={{ width: '100%' }}>
                         <Button fullWidth variant="light">Ver Cliente</Button>
