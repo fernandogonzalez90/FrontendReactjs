@@ -40,7 +40,7 @@ const CardComponent: React.FC<CardComponentProps> = ({ datos }) => {
                                 </ActionIcon>
                             </Anchor>}
 
-                        {datos.descripcion &&
+                        {datos.tipo &&
                             <><Menu.Target>
                                 <ActionIcon variant="transparent">
                                     <HiOutlineDotsVertical color="cyan" style={{ width: rem(16), height: rem(16) }} />
@@ -87,12 +87,11 @@ const CardComponent: React.FC<CardComponentProps> = ({ datos }) => {
                 </Text>}
             {/* Tipo del proyecto "Freelancer" */}
             {datos.tipo &&
-                <Text mt="sm" c="dimmed" size="sm" ta="center" px={4}>
+                <Text mt="sm" c="dimmed" size="sm" ta="center" p={4}>
                     <Text fw={700} span inherit c="cyan">
                         Tipo:
                     </Text>{' '}
                     {datos.tipo}
-                    <br />
                 </Text>}
 
 
