@@ -1,4 +1,4 @@
-import { ActionIcon, Anchor, Button, Card, Center, Dialog, Group, Menu, Text, ThemeIcon, rem } from '@mantine/core'
+import { ActionIcon, Anchor, Button, Card, Center, Dialog, Group, Menu, Text, ThemeIcon, rem, CloseButton } from '@mantine/core'
 import { CardComponentProps } from '../../Types/apiTypes'
 import iconMap from '../IconMap'
 import { PiCertificate } from 'react-icons/pi'
@@ -129,17 +129,31 @@ const CardComponent: React.FC<CardComponentProps> = ({ datos }) => {
                 </Center>
             </Card.Section>
             <Dialog
-                size="lg"
                 opened={isDescriptionDialogOpen}
                 onClose={() => setIsDescriptionDialogOpen(false)}
+                withCloseButton={false}
+                style={{
+                    position: 'fixed',
+                    top: '50%',
+                    left: '50%',
+                    transform: 'translate(-50%, -50%)',
+                    maxWidth: '90vw',
+                    maxHeight: '90vh',
+                    padding: '1rem',
+                    overflowY: 'auto',
+                    backgroundColor: 'white',
+                    borderRadius: '10px',
+                    boxShadow: '0px 10px 30px rgba(0, 0, 0, 0.1)'
+                }}
             >
-                <Center>
-                    <ul>
-                        {selectedDescription.map((item, index) => (
-                            <li key={index}>{item.trim()}</li>
-                        ))}
-                    </ul>
-                </Center>
+                <Group justify="flex-end">
+                    <CloseButton onClick={() => setIsDescriptionDialogOpen(false)} />
+                </Group>
+                <ul>
+                    {selectedDescription.map((item, index) => (
+                        <li key={index}>{item.trim()}</li>
+                    ))}
+                </ul>
             </Dialog>
         </Card>
     )
