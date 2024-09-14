@@ -146,9 +146,6 @@ const CardComponent: React.FC<CardComponentProps> = ({ datos }) => {
 
                     }
                 </ModalBody>
-                <ModalBaseCloseButton>
-                    cerrar
-                </ModalBaseCloseButton>
                 {datos.view_live && (
                     <Anchor href={datos.view_live} target="_blank" style={{ width: '100%' }}>
                         <Button fullWidth variant="light">Ver Cliente</Button>
