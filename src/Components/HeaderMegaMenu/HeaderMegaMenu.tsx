@@ -14,7 +14,6 @@ import {
 import { useDisclosure } from '@mantine/hooks';
 import classes from './HeaderMegaMenu.module.css';
 import { useNavigate } from 'react-router-dom';
-import { ActionToggle } from '../ActionToggle/ActionToggle';
 
 export function HeaderMegaMenu() {
   const [drawerOpened, { toggle: toggleDrawer, close: closeDrawer }] = useDisclosure(false);
