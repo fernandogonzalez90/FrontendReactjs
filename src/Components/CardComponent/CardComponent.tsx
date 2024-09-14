@@ -1,4 +1,4 @@
-import { ActionIcon, Anchor, Button, Card, Center, Group, Menu, Modal, ModalBaseCloseButton, ModalBaseHeader, ModalBody, ModalHeader, Text, ThemeIcon, Title, rem } from '@mantine/core'
+import { ActionIcon, Anchor, Button, Card, Center, Group, Menu, Modal, ModalBaseHeader, ModalBody, Text, ThemeIcon, Title, rem } from '@mantine/core'
 import { CardComponentProps } from '../../Types/apiTypes'
 import iconMap from '../IconMap'
 import { PiCertificate } from 'react-icons/pi'
