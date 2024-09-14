@@ -135,15 +135,15 @@ const CardComponent: React.FC<CardComponentProps> = ({ datos }) => {
                 opened={isDescriptionModalOpen}
                 onClose={() => setIsDescriptionModalOpen(false)}
             >
-                <ModalHeader>
-                    <Title order={3} ta={"center"}>{datos.titulo}</Title>
+                <ModalHeader ta={"center"} c={"cyan"}>
+                    <Title order={3}>{datos.titulo}</Title>
                 </ModalHeader>
+                {selectedDescription &&
+                    selectedDescription.map((item, index) => (
+                        <Text key={index} pb={"lg"}> {item.trim()}</Text>
+                    ))
 
-                <ul>
-                    {selectedDescription.map((item, index) => (
-                        <li key={index}>{item.trim()}</li>
-                    ))}
-                </ul>
+                }
                 {datos.view_live && (
                     <Anchor href={datos.view_live} target="_blank" style={{ width: '100%' }}>
                         <Button fullWidth variant="light">Ver Cliente</Button>
