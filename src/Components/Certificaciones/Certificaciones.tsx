@@ -22,7 +22,8 @@ export function Certificaciones() {
 
   return (
     <Container size="lg" py="lg" pt="lg" id='certificaciones'>
-      <Divider my="lg" color="cyan.3" label={
+      <br />
+      <Divider my="lg" pt="lg" color="cyan.3" label={
         <Title order={3} c="cyan">
           Certificaciones
         </Title>

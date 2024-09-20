@@ -8,7 +8,8 @@ export function Portafolio() {
     const { data } = useFetch<CardType[]>('proyectos/')
     return (
         <Container size="lg" py="lg" pt="lg" id='portafolio'>
-            <Divider my="md" color="cyan.3" label={
+            <br />
+            <Divider my="md" pt="lg" color="cyan.3" label={
                 <Title order={3} c="cyan">
                     Portafolios
                 </Title>
