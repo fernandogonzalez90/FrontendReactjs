@@ -7,7 +7,7 @@ import { CardType } from '../../Types/apiTypes';
 export function Portafolio() {
     const { data } = useFetch<CardType[]>('proyectos/')
     return (
-        <Container size="lg" py="lg" id='portafolio'>
+        <Container size="lg" py="lg" pt="lg" id='portafolio'>
             <Divider my="md" color="cyan.3" label={
                 <Title order={3} c="cyan">
                     Portafolios
