@@ -39,10 +39,12 @@ export function Skills() {
 
     return (
         <Container size="lg" id='skills'>
-            <Divider my="lg" color="cyan.3" />
-            <Title order={2} c="cyan" className={classes.title} ta="center" mt="sm" mb="10">
-                Skills
-            </Title>
+            <Divider my="lg" color="cyan.3" >
+                <Title order={2} c="cyan" className={classes.title} ta="center" mt="sm" mb="10">
+                    Skills
+                </Title>
+            </Divider>
+
             <Text mt="sm" size="lg" ta="center" c="dimmed">
                 Cuento con las siguientes habilidades blandas y tecnicas.
             </Text>

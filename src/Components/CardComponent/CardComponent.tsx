@@ -40,11 +40,17 @@ const CardComponent: React.FC<CardComponentProps> = ({ datos }) => {
                                 </ActionIcon>
                             </Anchor>}
 
-                        {datos.tipo &&
-                            <><Menu.Target>
+                        {datos.descripcion &&
+                            <>
                                 <ActionIcon variant="transparent">
-                                    <HiOutlineDotsVertical color="cyan" style={{ width: rem(16), height: rem(16) }} />
+                                    <FaEye color="cyan" style={{ width: rem(16), height: rem(16) }} onClick={() => {
+                                        if (datos.descripcion) {
+                                            openDescriptionModal(datos.descripcion);
+                                        }
+                                    }} />
                                 </ActionIcon>
+                                {/* <Menu.Target>
+                                
                             </Menu.Target>
                                 <Menu.Dropdown>
                                     {datos.descripcion &&
@@ -74,7 +80,8 @@ const CardComponent: React.FC<CardComponentProps> = ({ datos }) => {
                                             </Anchor>
                                         </Menu.Item>
                                     }
-                                </Menu.Dropdown></>}
+                                </Menu.Dropdown> */}
+                            </>}
                     </Menu>
                 </Group>
 
@@ -92,12 +99,13 @@ const CardComponent: React.FC<CardComponentProps> = ({ datos }) => {
                 </Text>}
             {/* Tipo del proyecto "Freelancer" */}
             {datos.tipo &&
-                <Text mt="sm" c="dimmed" size="sm" ta="center" py={4}>
+                <Text mt="sm" c="dimmed" size="sm" ta="center" pb="lg">
                     <Text fw={700} span inherit c="cyan">
                         Tipo:
                     </Text>{' '}
                     {datos.tipo}
                 </Text>}
+            <br />
 
 
             {/* Datos Certificados */}

@@ -50,11 +50,6 @@ export function HeaderMegaMenu() {
               <Text c="cyan.3">Contacto</Text>
             </Anchor>
           </Group>
-
-          <Group visibleFrom="sm">
-            {/* <ActionToggle></ActionToggle> */}
-            <Button variant="subtle" color="cyan" onClick={() => navigate('/login')}>Login</Button>
-          </Group>
           <Burger opened={drawerOpened} onClick={toggleDrawer} hiddenFrom="sm" />
         </Group>
       </header>
@@ -97,11 +92,6 @@ export function HeaderMegaMenu() {
             onClick={() => handleNavLinkClick('#contacto')}
           />
           <Divider my="sm" color="cyan.3" />
-
-          <Group justify="center" grow pb="xl" px="md">
-            {/* <ActionToggle></ActionToggle> */}
-            <Button variant="light" color="cyan" onClick={closeDrawer}>Log In</Button>
-          </Group>
         </ScrollArea>
       </Drawer>
     </Box>

@@ -15,11 +15,6 @@ const iconMap: { [key: string]: JSX.Element } = {
     // Iconos
     RxDotsVertical: <RxDotsVertical style={{ width: '70%', height: '70%' }} />,
     PiCertificateBold: <PiCertificateBold style={{ width: '70%', height: '70%' }} />,
-    FaGithub: <FaGithub style={{ width: '70%', height: '70%' }} />,
-    SiGitlab: <SiGitlab style={{ width: '70%', height: '70%' }} />,
-    SiGithubactions: <SiGithubactions style={{ width: '70%', height: '70%' }} />,
-    FaJenkins: <FaJenkins style={{ width: '70%', height: '70%' }} />,
-    SiAnsible: <SiAnsible style={{ width: '70%', height: '70%' }} />,
 
     // DevOps
     IoIosInfinite: <IoIosInfinite />,
@@ -27,6 +22,11 @@ const iconMap: { [key: string]: JSX.Element } = {
     SiKubernetes: <SiKubernetes style={{ width: '70%', height: '70%' }} />,
     FaDocker: <FaDocker style={{ width: '70%', height: '70%' }} />,
     FaGitAlt: <FaGitAlt style={{ width: '70%', height: '70%' }} />,
+    FaGithub: <FaGithub style={{ width: '70%', height: '70%' }} />,
+    SiGitlab: <SiGitlab style={{ width: '70%', height: '70%' }} />,
+    SiGithubactions: <SiGithubactions style={{ width: '70%', height: '70%' }} />,
+    FaJenkins: <FaJenkins style={{ width: '70%', height: '70%' }} />,
+    SiAnsible: <SiAnsible style={{ width: '70%', height: '70%' }} />,
 
     // Programacion
     FaPython: <FaPython style={{ width: '70%', height: '70%' }} />,

@@ -34,13 +34,13 @@ export function Contacto() {
 
     return (
         <Container size="lg" py="xl" id='contacto'>
-            <Divider my="md" color="cyan.3" />
+            <Divider my="md" color="cyan.3">
+                <Title order={2} ta="center" c="cyan" mt="sm" pt="lg">
+                    Contactame
+                </Title>
+            </Divider>
             <Container size="xs">
                 <form onSubmit={form.onSubmit(handleSubmit)}>
-                    <Title order={2} ta="center" c="cyan" mt="sm" pt="lg">
-                        Contactame
-                    </Title>
-
                     <SimpleGrid cols={{ base: 1, sm: 2 }} mt="xl">
                         <TextInput
                             label="Nombre"

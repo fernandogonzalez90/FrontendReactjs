@@ -23,10 +23,11 @@ export function Certificaciones() {
 
   return (
     <Container size="lg" py="xl" id='certificaciones'>
-      <Divider my="lg" color="cyan.3" />
-      <Title order={2} c="cyan" className={classes.title} ta="center" mt="sm">
-        Certificaciones
-      </Title>
+      <Divider my="lg" color="cyan.3" >
+        <Title order={2} c="cyan" className={classes.title} ta="center" mt="sm">
+          Certificaciones
+        </Title>
+      </Divider>
 
       <Text mt="sm" size="lg" ta="center" c="dimmed">
         He obtenido diversas certificaciones, principalmente a través del instituto <b>Educación IT</b>.<br />
