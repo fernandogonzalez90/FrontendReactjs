@@ -2,10 +2,8 @@ import { ActionIcon, Anchor, Button, Card, Center, Group, Menu, Modal, ModalBase
 import { CardComponentProps } from '../../Types/apiTypes'
 import iconMap from '../IconMap'
 import { PiCertificate } from 'react-icons/pi'
-import { HiOutlineDotsVertical } from 'react-icons/hi'
-import { CiCirclePlus } from 'react-icons/ci'
 import { FaFolderClosed } from "react-icons/fa6";
-import { FaEye, FaGithub } from 'react-icons/fa'
+import { FaEye } from 'react-icons/fa'
 import { useState } from 'react'
 
 const CardComponent: React.FC<CardComponentProps> = ({ datos }) => {

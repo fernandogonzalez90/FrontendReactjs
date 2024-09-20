@@ -1,4 +1,4 @@
-import { Title, Container, Group, Avatar, ActionIcon, Flex, Text, Divider } from '@mantine/core';
+import { Title, Container, Group, Avatar, ActionIcon, Flex, Divider } from '@mantine/core';
 import { Dots } from './Dots';
 import { useFetch } from '../useFetch';
 import classes from './Inicio.module.css';
