@@ -30,9 +30,9 @@ export function Inicio() {
 
 
         <Container size="sm">
-          <Title order={1}>{item.titulo}</Title>
+          <Title ta="center" order={1}>{item.titulo}</Title>
           <Divider c="cyan" />
-          <Title order={3} c="cyan">{item.subtitulo}</Title>
+          <Title ta="center" order={3} c="cyan">{item.subtitulo}</Title>
           {/* <Text ta='center' c='gray' size='lg'>{item.descripcion}</Text> */}
         </Container>
 

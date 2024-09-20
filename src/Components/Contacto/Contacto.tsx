@@ -35,9 +35,7 @@ export function Contacto() {
     return (
         <Container size="lg" py="xl" id='contacto'>
             <Divider my="md" color="cyan.3">
-                <Title order={2} ta="center" c="cyan" mt="sm" pt="lg">
-                    Contactame
-                </Title>
+                Contactame
             </Divider>
             <Container size="xs">
                 <form onSubmit={form.onSubmit(handleSubmit)}>

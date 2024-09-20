@@ -38,7 +38,7 @@ const CardComponent: React.FC<CardComponentProps> = ({ datos }) => {
                                 </ActionIcon>
                             </Anchor>}
 
-                        {datos.descripcion &&
+                        {datos.tipo &&
                             <>
                                 <ActionIcon variant="transparent">
                                     <FaEye color="cyan" style={{ width: rem(16), height: rem(16) }} onClick={() => {
