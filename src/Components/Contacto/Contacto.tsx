@@ -35,7 +35,7 @@ export function Contacto() {
     return (
         <Container size="lg" py="xl" id='contacto'>
             <Divider my="md" color="cyan.3" label={
-                <Title>
+                <Title order={3} c="cyan">
                     Contacto
                 </Title>
             } />

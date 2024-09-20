@@ -9,7 +9,7 @@ export function Portafolio() {
     return (
         <Container size="lg" id='portafolio'>
             <Divider my="md" color="cyan.3" label={
-                <Title>
+                <Title order={3} c="cyan">
                     Portafolios
                 </Title>
             } />

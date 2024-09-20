@@ -40,7 +40,7 @@ export function Skills() {
     return (
         <Container size="lg" id='skills'>
             <Divider my="lg" color="cyan.3" label={
-                <Title>
+                <Title order={3} c="cyan">
                     Skills
                 </Title>
             } />

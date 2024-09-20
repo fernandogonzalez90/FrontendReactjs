@@ -23,7 +23,7 @@ export function Certificaciones() {
   return (
     <Container size="lg" py="xl" id='certificaciones'>
       <Divider my="lg" color="cyan.3" label={
-        <Title>
+        <Title order={3} c="cyan">
           Certificaciones
         </Title>
       } />
