@@ -6,6 +6,7 @@ import {
     Loader,
     Flex,
     ActionIcon,
+    Title,
 } from '@mantine/core';
 import { useFetch } from '../useFetch';
 import classes from './Skills.module.css';
@@ -38,9 +39,11 @@ export function Skills() {
 
     return (
         <Container size="lg" id='skills'>
-            <Divider my="lg" color="cyan.3" >
-                Skills
-            </Divider>
+            <Divider my="lg" color="cyan.3" label={
+                <Title>
+                    Skills
+                </Title>
+            } />
 
             <Text mt="sm" size="lg" ta="center" c="dimmed">
                 Cuento con las siguientes habilidades blandas y tecnicas.

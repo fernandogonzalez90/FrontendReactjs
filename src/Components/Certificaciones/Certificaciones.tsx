@@ -2,7 +2,8 @@ import {
   SimpleGrid,
   Container,
   Divider,
-  Text
+  Text,
+  Title
 } from '@mantine/core';
 import { useFetch } from '../useFetch';
 import { CardType } from '../../Types/apiTypes';
@@ -21,9 +22,11 @@ export function Certificaciones() {
 
   return (
     <Container size="lg" py="xl" id='certificaciones'>
-      <Divider my="lg" color="cyan.3" >
-        Certificaciones
-      </Divider>
+      <Divider my="lg" color="cyan.3" label={
+        <Title>
+          Certificaciones
+        </Title>
+      } />
 
       <Text mt="sm" size="lg" ta="center" c="dimmed">
         He obtenido diversas certificaciones, principalmente a través del instituto <b>Educación IT</b>.<br />

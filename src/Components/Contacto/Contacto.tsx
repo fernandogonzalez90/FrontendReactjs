@@ -1,4 +1,4 @@
-import { TextInput, Textarea, SimpleGrid, Group, Button, Container, Divider, Text } from '@mantine/core';
+import { TextInput, Textarea, SimpleGrid, Group, Button, Container, Divider, Text, Title } from '@mantine/core';
 import { useForm } from '@mantine/form';
 import { useApi } from '../useApi';
 
@@ -34,9 +34,11 @@ export function Contacto() {
 
     return (
         <Container size="lg" py="xl" id='contacto'>
-            <Divider my="md" color="cyan.3">
-                Contactame
-            </Divider>
+            <Divider my="md" color="cyan.3" label={
+                <Title>
+                    Contacto
+                </Title>
+            } />
             <Container size="xs">
                 <form onSubmit={form.onSubmit(handleSubmit)}>
                     <SimpleGrid cols={{ base: 1, sm: 2 }} mt="xl">
