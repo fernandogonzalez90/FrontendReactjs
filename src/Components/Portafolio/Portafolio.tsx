@@ -1,4 +1,4 @@
-import { Container, Divider, SimpleGrid, Title, Text } from '@mantine/core';
+import { Container, Divider, SimpleGrid, Text } from '@mantine/core';
 import { useFetch } from '../useFetch'
 import CardComponent from '../CardComponent/CardComponent';
 import { CardType } from '../../Types/apiTypes';

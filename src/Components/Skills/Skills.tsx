@@ -2,7 +2,6 @@ import {
     Text,
     SimpleGrid,
     Container,
-    Title,
     Divider,
     Loader,
     Flex,

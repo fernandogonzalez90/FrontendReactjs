@@ -1,12 +1,10 @@
 import {
-  Title,
   SimpleGrid,
   Container,
   Divider,
   Text
 } from '@mantine/core';
 import { useFetch } from '../useFetch';
-import classes from './Certificaciones.module.css';
 import { CardType } from '../../Types/apiTypes';
 import CardComponent from '../CardComponent/CardComponent';
 
