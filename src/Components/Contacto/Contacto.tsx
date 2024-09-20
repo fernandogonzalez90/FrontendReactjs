@@ -33,7 +33,7 @@ export function Contacto() {
     };
 
     return (
-        <Container size="lg" py="xl" id='contacto'>
+        <Container size="lg" py="lg" id='contacto'>
             <Divider my="md" color="cyan.3" label={
                 <Title order={3} c="cyan">
                     Contacto

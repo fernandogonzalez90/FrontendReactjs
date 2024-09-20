@@ -38,7 +38,7 @@ export function Skills() {
     ));
 
     return (
-        <Container size="lg" id='skills'>
+        <Container size="lg" py="lg" id='skills'>
             <Divider my="lg" color="cyan.3" label={
                 <Title order={3} c="cyan">
                     Skills
