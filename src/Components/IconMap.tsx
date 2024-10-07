@@ -4,7 +4,7 @@ import { PiCertificateBold } from "react-icons/pi";
 import { RxDotsVertical } from "react-icons/rx";
 import { FaLinux, FaPython, FaDocker, FaAngular, FaReact, FaGitAlt, FaGithub, FaJenkins, FaAws, FaWordpress } from 'react-icons/fa';
 import { JSX } from 'react';
-import { SiFastapi, SiKubernetes, SiTerraform, SiGnubash, SiTypescript, SiDjango, SiGitlab, SiGithubactions, SiAnsible, SiGooglecloud, SiGunicorn, SiNginx, SiSelenium, SiGooglecolab } from 'react-icons/si';
+import { SiFlask, SiFastapi, SiKubernetes, SiTerraform, SiGnubash, SiTypescript, SiDjango, SiGitlab, SiGithubactions, SiAnsible, SiGooglecloud, SiGunicorn, SiNginx, SiSelenium, SiGooglecolab } from 'react-icons/si';
 import { IoLogoJavascript } from "react-icons/io5";
 
 
@@ -40,6 +40,8 @@ const iconMap: { [key: string]: JSX.Element } = {
     IoLogoIonic: <IoLogoIonic style={{ width: '70%', height: '70%' }} />,
     SiDjango: <SiDjango style={{ width: '70%', height: '70%' }} />,
     SiFastapi: <SiFastapi style={{ width: '70%', height: '70%' }} />,
+    SiFlask: <SiFlask style={{ width: '70%', height: '70%' }} />,
+
 
     // Sistemas Operativos
     FaLinux: <FaLinux style={{ width: '70%', height: '70%' }} />,
