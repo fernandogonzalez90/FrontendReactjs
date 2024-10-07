@@ -4,7 +4,7 @@ import { PiCertificateBold } from "react-icons/pi";
 import { RxDotsVertical } from "react-icons/rx";
 import { FaLinux, FaPython, FaDocker, FaAngular, FaReact, FaGitAlt, FaGithub, FaJenkins, FaAws, FaWordpress } from 'react-icons/fa';
 import { JSX } from 'react';
-import { SiFlask, SiFastapi, SiKubernetes, SiTerraform, SiGnubash, SiTypescript, SiDjango, SiGitlab, SiGithubactions, SiAnsible, SiGooglecloud, SiGunicorn, SiNginx, SiSelenium, SiGooglecolab } from 'react-icons/si';
+import { SiMysql, SiFlask, SiFastapi, SiKubernetes, SiTerraform, SiGnubash, SiTypescript, SiDjango, SiGitlab, SiGithubactions, SiAnsible, SiGooglecloud, SiGunicorn, SiNginx, SiSelenium, SiGooglecolab } from 'react-icons/si';
 import { IoLogoJavascript } from "react-icons/io5";
 
 
@@ -58,6 +58,9 @@ const iconMap: { [key: string]: JSX.Element } = {
 
     // CMS
     FaWordpress: <FaWordpress style={{ width: '70%', height: '70%' }} />,
+
+    // DB
+    SiMysql: <SiMysql style={{ width: '70%', height: '70%' }} />,
 };
 
 export default iconMap;
