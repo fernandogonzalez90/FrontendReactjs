@@ -26,6 +26,13 @@ jobs:
         run: npm run build
         working-directory: ./
 
+      - name: Add SSH private key to the agent
+        run: |
+          echo "$SSH_PRIVATE_KEY" > private_key.pem
+          chmod 600 private_key.pem
+          eval $(ssh-agent -s)
+          ssh-add private_key.pem
+
       - name: Copy files to server
         run: |
           scp -o StrictHostKeyChecking=no -r ./dist/* admin@15.229.85.210:/
