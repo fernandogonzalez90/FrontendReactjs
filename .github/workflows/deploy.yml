@@ -28,6 +28,6 @@ jobs:
 
       - name: Copy files to server
         run: |
-          scp -o StrictHostKeyChecking=no -r ./dist/* admin@15.229.85.210
+          scp -o StrictHostKeyChecking=no -r ./dist/* admin@15.229.85.210:/
         env:
           SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
