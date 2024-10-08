@@ -1,0 +1,33 @@
+name: Deploy React App
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out the code
+        uses: actions/checkout@v2
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: "20.14.9"
+
+      - name: Install dependencies
+        run: npm install
+        working-directory: ./
+
+      - name: Build the React app
+        run: npm run build
+        working-directory: ./
+
+      - name: Copy files to server
+        run: |
+          scp -o StrictHostKeyChecking=no -r ./dist/* admin@15.229.85.210:/home/admin/BackendDjango
+        env:
+          SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
