@@ -28,7 +28,7 @@ jobs:
 
       - name: Add SSH private key to the agent
         run: |
-          echo "$SSH_PRIVATE_KEY" > private_key.pem
+          echo "$SSH_PRIVATE_KEY" | tr -d '\r' | sed 's/\\n/\n/g' > private_key.pem
           chmod 600 private_key.pem
           eval $(ssh-agent -s)
           ssh-add private_key.pem
