@@ -6,6 +6,8 @@ import { FaLinux, FaPython, FaDocker, FaAngular, FaReact, FaGitAlt, FaGithub, Fa
 import { JSX } from 'react';
 import { SiMysql, SiFlask, SiFastapi, SiKubernetes, SiTerraform, SiGnubash, SiTypescript, SiDjango, SiGitlab, SiGithubactions, SiAnsible, SiGooglecloud, SiGunicorn, SiNginx, SiSelenium, SiGooglecolab } from 'react-icons/si';
 import { IoLogoJavascript } from "react-icons/io5";
+import { BiLogoPostgresql } from "react-icons/bi";
+
 
 
 
@@ -61,6 +63,8 @@ const iconMap: { [key: string]: JSX.Element } = {
 
     // DB
     SiMysql: <SiMysql style={{ width: '70%', height: '70%' }} />,
+    BiLogoPostgresql: <BiLogoPostgresql style={{ width: '70%', height: '70%' }} />,
+
 };
 
 export default iconMap;
