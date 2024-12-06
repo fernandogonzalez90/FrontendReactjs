@@ -28,13 +28,13 @@ jobs:
 
       - name: Add SSH private key to the agent
         run: |
-          echo "$SSH_PRIVATE_KEY" | base64 --decode > private_key.pem
+          echo "$SSH_PRIVATE_KEY" > private_key.pem
           chmod 600 private_key.pem
-          eval "$(ssh-agent -s)" 
+          eval "$(ssh-agent -s)"
           ssh-add private_key.pem
+        env:
+          SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
 
       - name: Copy files to server
         run: |
-          scp -o StrictHostKeyChecking=no -r ./dist/* admin@devgonzalezf.com.ar:/home/admin/frontend/dist
-        env:
-          SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
+          scp -o StrictHostKeyChecking=no -r ./dist/* admin@devgonzalezf.com.ar:/home/admin/frontend/
